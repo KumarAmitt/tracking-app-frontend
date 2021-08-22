@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoggedInStatus, loginUser } from '../../store/slicers/user_login';
+// import { getSessionInfo } from '../../store/slicers/user_session';
 
 const Login = () => {
   const dispatch = useDispatch();
   const loggedInStatus = useSelector(getLoggedInStatus);
+  // const sessionInfo = useSelector(getSessionInfo);
   const [newUser, setNewUser] = useState({ username: '', password: '' });
 
   const handleChange = (e) => {
@@ -22,6 +24,7 @@ const Login = () => {
     }));
   };
 
+  console.log('Login Screen: ', loggedInStatus);
   if (loggedInStatus) {
     return <Redirect to="/dashboard" />;
   }

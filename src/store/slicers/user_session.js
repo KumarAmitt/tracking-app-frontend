@@ -14,12 +14,7 @@ const sessionSlice = createSlice({
       state.loading = true;
     },
     userLoggedInStatus: (state, action) => {
-      state.sessionInfo.logged_in = action.payload.logged_in;
-      if (action.payload.logged_in) {
-        state.sessionInfo.id = action.payload.user.id;
-        state.sessionInfo.username = action.payload.user.username;
-        state.sessionInfo.password = action.payload.user.password_digest;
-      }
+      state.sessionInfo = action.payload;
       state.loading = false;
     },
     sessionFailed: (state, action) => {
@@ -34,7 +29,7 @@ export default sessionSlice.reducer;
 
 // ACTION CREATOR
 
-export const checkLoginStatus = () => apiCallBegan({
+export const loadSession = () => apiCallBegan({
   url: '/logged_in',
   withCredentials: true,
   onStart: sessionRequested.type,
@@ -46,5 +41,5 @@ export const checkLoginStatus = () => apiCallBegan({
 
 export const getSessionInfo = createSelector(
   (state) => state.entities.auth.session.sessionInfo,
-  (sessionInfo) => (sessionInfo.logged_in ? sessionInfo : false),
+  (sessionInfo) => sessionInfo,
 );

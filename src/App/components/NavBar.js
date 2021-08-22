@@ -11,11 +11,11 @@ const NavBar = () => (
     {' '}
     |
     {' '}
-    <Link to="/">Tab 3</Link>
+    <Link to="/">Dashboard</Link>
     {' '}
     |
     {' '}
-    <Link to="/">Tab 4</Link>
+    <Link to="/profile">Profile</Link>
   </>
 );
 

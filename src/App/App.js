@@ -5,6 +5,7 @@ import AppBar from './components/AppBar';
 import NavBar from './components/NavBar';
 import Registration from './auth/Registration';
 import Login from './auth/Login';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/registration" component={Registration} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/profile" component={Profile} />
         </Switch>
         <hr />
         <NavBar />

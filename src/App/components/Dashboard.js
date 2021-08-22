@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkLoginStatus, getSessionInfo } from '../../store/slicers/user_session';
+import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const sessionInfo = useSelector(getSessionInfo);
 
   useEffect(() => {
-    dispatch(checkLoginStatus());
-  });
+    dispatch(loadSession());
+  }, []);
 
-  console.log(sessionInfo);
+  console.log('Dashboard: ', sessionInfo);
 
   return (
     <>
