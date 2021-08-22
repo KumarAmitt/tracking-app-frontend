@@ -2,7 +2,7 @@ import React from 'react';
 
 const Registration = () => (
   <>
-    <h1>Home</h1>
+    <h1>Sign Up</h1>
   </>
 );
 
