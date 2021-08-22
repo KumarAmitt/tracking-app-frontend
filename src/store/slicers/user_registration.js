@@ -14,10 +14,9 @@ const registrationSlice = createSlice({
       state.loading = true;
     },
     userRegistered: (state, action) => {
-      console.log(action.payload.status);
       state.registration.id = action.payload.user.id;
       state.registration.username = action.payload.user.username;
-      state.registration.password = action.payload.user.password_digest;
+      state.registration.password = action.payload.user['password_digest'];
       state.registration.status = action.payload.status;
       state.loading = false;
     },

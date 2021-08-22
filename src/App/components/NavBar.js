@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AppBarBottom = () => (
+const NavBar = () => (
   <>
     <Link to="/">Tab 1</Link>
     {' '}
@@ -19,4 +19,4 @@ const AppBarBottom = () => (
   </>
 );
 
-export default AppBarBottom;
+export default NavBar;
