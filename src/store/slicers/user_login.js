@@ -2,20 +2,21 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 import { apiCallBegan } from '../api';
 
+/* eslint-disable */
 const loginSlice = createSlice({
   name: 'login',
   initialState: {
     loggedInUser: {},
-    loading: false
+    loading: false,
   },
   reducers: {
     loginInitiated: (state, action) => {
       state.loading = true;
     },
     userLogin: (state, action) => {
-      if(action.payload.status === 401){
-        state.loggedInUser.status = action.payload.status
-      }else{
+      if (action.payload.status === 401) {
+        state.loggedInUser.status = action.payload.status;
+      } else {
         state.loggedInUser.id = action.payload.user.id;
         state.loggedInUser.username = action.payload.user.username;
         state.loggedInUser.status = action.payload.status;
@@ -28,6 +29,7 @@ const loginSlice = createSlice({
     },
   },
 });
+/* eslint-enable */
 
 const { userLogin, loginInitiated, loginFailed } = loginSlice.actions;
 export default loginSlice.reducer;
@@ -44,17 +46,16 @@ export const loginUser = (user) => apiCallBegan({
   onError: loginFailed.type,
 });
 
-
 // SELECTOR
 
 export const getLoggedInStatus = createSelector(
-    (state) => state.entities.auth.login.loggedInUser.status,
-    (status) => status === 'created'
+  (state) => state.entities.auth.login.loggedInUser.status,
+  (status) => status === 'created',
 );
 
 // SELECTOR
 
 export const getLoginInfo = createSelector(
-    (state) => state.entities.auth.login.loggedInUser,
-    (loggedInUser) => loggedInUser.status === 'created' ? loggedInUser : false
+  (state) => state.entities.auth.login.loggedInUser,
+  (loggedInUser) => (loggedInUser.status === 'created' ? loggedInUser : false),
 );
