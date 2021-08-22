@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppBar = () => (
   <>
-    <h2>Trac.it</h2>
+    <h2>Track.it</h2>
   </>
 );
 

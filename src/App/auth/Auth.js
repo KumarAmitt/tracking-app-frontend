@@ -2,13 +2,13 @@ import React from 'react';
 import Registration from './Registration';
 import Login from './Login';
 
-const Home = () => (
+const Auth = () => (
   <>
-    <h1>Home</h1>
+    <h1>Auth</h1>
     <Registration />
     <br />
     <Login />
   </>
 );
 
-export default Home;
+export default Auth;
