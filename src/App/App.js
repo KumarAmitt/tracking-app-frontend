@@ -10,7 +10,6 @@ import AddDeal from './components/AddDeal';
 function App() {
   return (
     <>
-      <hr />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />

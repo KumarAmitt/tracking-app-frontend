@@ -5,7 +5,7 @@ const AddDeal = () => {
   const appBarTitle = 'Add Deal';
   return (
     <>
-      <AppBar content={appBarTitle} />
+      <AppBar title={appBarTitle} />
     </>
   );
 };
