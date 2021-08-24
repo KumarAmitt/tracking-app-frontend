@@ -6,6 +6,7 @@ const AddDeal = () => {
   return (
     <>
       <AppBar title={appBarTitle} />
+      
     </>
   );
 };
