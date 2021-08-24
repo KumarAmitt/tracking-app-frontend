@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AppBar = () => (
+const AppBar = ({ title }) => (
   <>
-    <h2>Track.it</h2>
+    <h2>{title}</h2>
   </>
 );
 

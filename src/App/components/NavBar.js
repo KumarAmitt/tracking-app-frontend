@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => (
   <>
-    <Link to="/">Tab 1</Link>
+    <Link to="/add_deal">Add Deal</Link>
     {' '}
     |
     {' '}
