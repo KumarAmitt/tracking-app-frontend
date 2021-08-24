@@ -7,7 +7,7 @@ const NavBar = () => (
     {' '}
     |
     {' '}
-    <Link to="/">Tab 2</Link>
+    <Link to="/track">Track</Link>
     {' '}
     |
     {' '}

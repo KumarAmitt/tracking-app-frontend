@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { createSelector } from 'reselect';
+import { createSelector } from 'reselect';
 import { apiCallBegan } from '../api';
 
 /* eslint-disable */
@@ -54,7 +54,12 @@ export const loadDeals = () => apiCallBegan({
 
 // SELECTOR
 
-// export const getProducts = createSelector(
-//     (state) => state.entities.product.products,
-//     (products) => products,
-// );
+export const getDeals = createSelector(
+  (state) => state.entities.deal.deals,
+  (deals) => deals,
+);
+
+export const getTodayDeals = createSelector(
+  (state) => state.entities.deal.deals.today,
+  (today) => today,
+);
