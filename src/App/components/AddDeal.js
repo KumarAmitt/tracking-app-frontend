@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
+import { createDeal } from '../../store/slicers/deal';
 
 const AddDeal = () => {
   const appBarTitle = 'Add Deal';
@@ -30,6 +31,11 @@ const AddDeal = () => {
       el.style.color = 'red';
     } else {
       console.log(dealInfo);
+      dispatch(createDeal({
+        product_id: dealInfo.productId,
+        application_id: dealInfo.applicationId,
+        premium: dealInfo.premium,
+      }));
       setDealInfo({
         ...dealInfo, productId: 0, applicationId: '', premium: '',
       });
