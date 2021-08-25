@@ -15,27 +15,28 @@ const Track = () => {
 
   // console.log(products);
   // console.log(deals);
+  console.log('Deals: ', Object.entries(deals));
 
   return (
     <>
       <AppBar title={title} />
       {
-        Object.entries(deals).map((d) => (
-          <Link to={{ pathname: '/track_details', info: d[1], date: d[0] }} key={d[0]}>
-            <div>
-              <span>
-                {d[0]}
-                :
-              </span>
-              {' '}
-              <span>{d[1].map((e) => e.premium).reduce((a, b) => a + b)}</span>
-              {' '}
-              <span>{d[1].length}</span>
-            </div>
-          </Link>
-        ))
+        Object.entries(deals).length === 0 ? 'No data found. Please Add deal first'
+          : Object.entries(deals).map((d) => (
+            <Link to={{ pathname: '/track_details', info: d[1], date: d[0] }} key={d[0]}>
+              <div>
+                <span>
+                  {d[0]}
+                  :
+                </span>
+                {' '}
+                <span>{d[1].map((e) => e.premium).reduce((a, b) => a + b)}</span>
+                {' '}
+                <span>{d[1].length}</span>
+              </div>
+            </Link>
+          ))
       }
-
     </>
   );
 };

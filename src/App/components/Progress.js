@@ -54,30 +54,3 @@ const Progress = () => {
 };
 
 export default Progress;
-
-// const Progress = () => {
-//   const title = 'Progress Report';
-//   const dispatch = useDispatch();
-//   // const target = 600000;
-//   const totalPremium = useSelector(getTotalPremium);
-//   const progressReport = useSelector(getProgressReport);
-//
-//   useEffect(() => {
-//     dispatch(loadDeals());
-//   }, []);
-//
-//   console.log(totalPremium);
-//   console.log(progressReport);
-//
-//   // Object.entries(progressReport).forEach((p) => {
-//   //   console.log(p[0], p[1].map((e) => e.premium).reduce((a, b) => a + b));
-//   // });
-//
-//   return (
-//     <>
-//       <AppBar title={title} />
-//     </>
-//   );
-// };
-
-// export default Progress;
