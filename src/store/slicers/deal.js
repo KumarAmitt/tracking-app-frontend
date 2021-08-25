@@ -54,9 +54,9 @@ export const loadDeals = () => apiCallBegan({
 
 // SELECTOR
 
-export const getDeals = createSelector(
+export const getAllDeals = createSelector(
   (state) => state.entities.deal.deals,
-  (deals) => deals.progress,
+  (deals) => (deals.all ? deals.all : 0),
 );
 
 export const getTotalPremium = createSelector(
@@ -67,9 +67,4 @@ export const getTotalPremium = createSelector(
 export const getProgressReport = createSelector(
   (state) => state.entities.deal.deals.progress,
   (progress) => (progress ? progress.items : 0),
-);
-
-export const getTodayDeals = createSelector(
-  (state) => state.entities.deal.deals.today,
-  (today) => today,
 );
