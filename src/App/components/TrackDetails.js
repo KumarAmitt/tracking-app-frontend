@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
+import { TARGET } from '../../constants';
 
 const TrackDetails = ({ location }) => {
   const { info, date } = location;
@@ -16,12 +17,15 @@ const TrackDetails = ({ location }) => {
     dispatch(loadProducts());
   }, []);
 
-  console.log(todayTotal);
+  // console.log(todayTotal);
   return (
     <>
       <AppBar title={title} />
       <Link to="/track">Go Back</Link>
       <div>{date}</div>
+      <div>{TARGET}</div>
+      <div>{todayTotal}</div>
+      <div>{TARGET > todayTotal ? TARGET - todayTotal : 0}</div>
       <hr />
       {
         info && info.map((e) => (
