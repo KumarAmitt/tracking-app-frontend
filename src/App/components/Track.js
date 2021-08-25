@@ -36,6 +36,8 @@ const Track = () => {
             </span>
             {' '}
             <span>{d[1].map((e) => e.premium).reduce((a, b) => a + b)}</span>
+            {' '}
+            <span>{d[1].length}</span>
           </div>
         ))
       }
