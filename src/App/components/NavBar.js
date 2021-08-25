@@ -15,6 +15,10 @@ const NavBar = () => (
     {' '}
     |
     {' '}
+    <Link to="/progress">Progress</Link>
+    {' '}
+    |
+    {' '}
     <Link to="/profile">Profile</Link>
   </>
 );
