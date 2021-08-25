@@ -45,7 +45,18 @@ const Track = () => {
 
       {
         Object.entries(deals).map((d) => (
-          <Link to="/track_details" key={d[0]}>Deal Details</Link>
+          <Link to={{ pathname: '/track_details', info: d[1] }} key={d[0]}>
+            <div>
+              <span>
+                {d[0]}
+                :
+              </span>
+              {' '}
+              <span>{d[1].map((e) => e.premium).reduce((a, b) => a + b)}</span>
+              {' '}
+              <span>{d[1].length}</span>
+            </div>
+          </Link>
         ))
       }
 
