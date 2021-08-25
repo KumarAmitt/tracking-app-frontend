@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import AppBar from './AppBar';
 import { getAllDeals, loadDeals } from '../../store/slicers/deal';
 import { getProducts, loadProducts } from '../../store/slicers/product';
@@ -41,6 +42,13 @@ const Track = () => {
           </div>
         ))
       }
+
+      {
+        Object.entries(deals).map((d) => (
+          <Link to="/track_details" key={d[0]}>Deal Details</Link>
+        ))
+      }
+
     </>
   );
 };
