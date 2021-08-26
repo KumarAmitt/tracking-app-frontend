@@ -11,10 +11,6 @@ const NavBar = () => (
     {' '}
     |
     {' '}
-    <Link to="/">Dashboard</Link>
-    {' '}
-    |
-    {' '}
     <Link to="/progress">Progress</Link>
     {' '}
     |

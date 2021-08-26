@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
+import { Redirect } from 'react-router-dom';
 import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
 import { createDeal } from '../../store/slicers/deal';
+import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 
 const AddDeal = () => {
   const appBarTitle = 'Add Deal';
   const dispatch = useDispatch();
   const products = useSelector(getProducts);
+  const sessionInfo = useSelector(getSessionInfo);
   const [dealInfo, setDealInfo] = useState({ productId: 0, applicationId: '', premium: '' });
 
   useEffect(() => {
     dispatch(loadProducts());
+    dispatch(loadSession());
   }, []);
 
   const handleChange = (e) => {
@@ -41,6 +45,10 @@ const AddDeal = () => {
       });
     }
   };
+
+  if (!sessionInfo.logged_in) {
+    return <Redirect to="/" />;
+  }
 
   console.log(products);
   return (
