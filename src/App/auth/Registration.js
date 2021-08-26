@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRegistrationStatus, registerUser } from '../../store/slicers/user_registration';
+import AppBar from '../components/AppBar';
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const Registration = () => {
 
   return (
     <>
+      <AppBar title="Sign up" />
       <form onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="Username" value={newUser.username} onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />

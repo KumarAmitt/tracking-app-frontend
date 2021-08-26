@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/slicers/user_login';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
+import AppBar from '../components/AppBar';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-      <h2>Sign In</h2>
+      <AppBar title="Sign In" />
       <form onSubmit={handleSubmit} id="form">
         <input type="text" name="username" placeholder="Username" value={newUser.username} onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
