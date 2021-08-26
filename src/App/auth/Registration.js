@@ -14,6 +14,7 @@ const Registration = () => {
 
   const handleChange = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    document.querySelector('.auth-error').classList.add('hide');
   };
 
   const handleSubmit = async (e) => {
@@ -28,9 +29,7 @@ const Registration = () => {
     dispatch(loadSession());
 
     if (!sessionInfo.logged_in) {
-      // console.log('confirm credentials');
-      const el = document.getElementById('form');
-      el.insertAdjacentHTML('beforeend', '<div style="color: red">Registration failed</div>');
+      document.querySelector('.auth-error').classList.remove('hide');
     }
 
     setNewUser({ ...newUser, password: '', password_confirmation: '' });
@@ -53,6 +52,7 @@ const Registration = () => {
           <input type="password" name="password_confirmation" placeholder="Password Confirmation" value={newUser.password_confirmation} onChange={handleChange} required />
           <button type="submit">Register</button>
         </form>
+        <div className="auth-error hide">Credentials Not Found</div>
         <div className="auth-sub">
           <p>Existing users Login</p>
           <Link to="/">Sign In</Link>
