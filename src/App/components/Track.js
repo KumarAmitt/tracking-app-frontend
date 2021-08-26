@@ -18,7 +18,7 @@ const Track = () => {
 
   // console.log(products);
   // console.log(deals);
-  console.log('Deals: ', Object.entries(deals));
+  // console.log('Deals: ', Object.entries(deals));
 
   if (!sessionInfo.logged_in) {
     return <Redirect to="/" />;
@@ -43,7 +43,7 @@ const Track = () => {
               </div>
             </Link>
           ))
-      }
+       }
     </>
   );
 };

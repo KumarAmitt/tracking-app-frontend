@@ -25,13 +25,13 @@ const Login = () => {
     dispatch(loadSession());
 
     if (!sessionInfo.logged_in) {
-      console.log('confirm credentials');
+      // console.log('confirm credentials');
       const el = document.getElementById('form');
       el.insertAdjacentHTML('beforeend', '<div style="color: red">Credentials Not Found</div>');
     }
   };
 
-  console.log('Login Screen: ', sessionInfo.logged_in);
+  // console.log('Login Screen: ', sessionInfo.logged_in);
   // console.log('Login Screen: ', loggedInStatus);
   if (sessionInfo.logged_in) {
     return <Redirect to="/profile" />;

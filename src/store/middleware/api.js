@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as actions from '../api';
+import { BASE_URL } from '../../constants';
 
 // eslint-disable-next-line
 const api = ({ dispatch }) => (next) => async (action) => {
@@ -15,7 +16,7 @@ const api = ({ dispatch }) => (next) => async (action) => {
 
   try {
     const response = await axios.request({
-      baseURL: 'http://localhost:3001',
+      baseURL: BASE_URL,
       url,
       method,
       data,

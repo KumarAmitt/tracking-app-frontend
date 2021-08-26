@@ -17,19 +17,19 @@ ReactDOM.render(
 //-----------------------------------
 
 // import configureAppStore from './store/configureStore';
-// import { loadProducts } from './store/slicers/product';
-// import {createDeal, loadDeals} from './store/slicers/deal';
 // import { loginUser } from './store/slicers/user_login';
-// import {logoutUser} from "./store/slicers/user_logout";
-
+// import { loadSession } from './store/slicers/user_session';
+//
 // const store = configureAppStore();
-
+//
 // store.dispatch(loginUser({
 //   user: {
 //     username: 'user101',
 //     password: 'asdf',
 //   },
 // }));
+//
+// store.dispatch(loadSession());
 
 // store.dispatch(logoutUser());
 

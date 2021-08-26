@@ -34,7 +34,7 @@ const AddDeal = () => {
       el.innerHTML = 'Product must be selected';
       el.style.color = 'red';
     } else {
-      console.log(dealInfo);
+      // console.log(dealInfo);
       dispatch(createDeal({
         product_id: dealInfo.productId,
         application_id: dealInfo.applicationId,
@@ -50,10 +50,10 @@ const AddDeal = () => {
     return <Redirect to="/" />;
   }
 
-  console.log(products);
+  // console.log(products);
   return (
     <>
-      <AppBar title={appBarTitle} />
+      <AppBar title={appBarTitle} link="/track" />
       <form onSubmit={handleSubmit}>
         <Select
           options={products.map((p) => ({ label: p.product_name, value: p.id }))}

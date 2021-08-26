@@ -28,7 +28,7 @@ const TrackDetails = ({ location }) => {
 
   return (
     <>
-      <AppBar title={title} />
+      <AppBar title={title} link="/track" />
       <Link to="/track">Go Back</Link>
       <div>{date}</div>
       <div>{TARGET}</div>

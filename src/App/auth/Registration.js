@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRegistrationStatus, registerUser } from '../../store/slicers/user_registration';
+import { registerUser } from '../../store/slicers/user_registration';
 import AppBar from '../components/AppBar';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 
 const Registration = () => {
   const dispatch = useDispatch();
-  const registrationStatus = useSelector(getRegistrationStatus);
   const sessionInfo = useSelector(getSessionInfo);
 
   const [newUser, setNewUser] = useState({ username: '', password: '', password_confirmation: '' });
@@ -28,7 +27,7 @@ const Registration = () => {
     dispatch(loadSession());
 
     if (!sessionInfo.logged_in) {
-      console.log('confirm credentials');
+      // console.log('confirm credentials');
       const el = document.getElementById('form');
       el.insertAdjacentHTML('beforeend', '<div style="color: red">Registration failed</div>');
     }
@@ -36,8 +35,8 @@ const Registration = () => {
     setNewUser({ ...newUser, password: '', password_confirmation: '' });
   };
 
-  console.log('registration: ', registrationStatus);
-  console.log(sessionInfo.logged_in);
+  // console.log('registration: ', registrationStatus);
+  // console.log(sessionInfo.logged_in);
 
   if (sessionInfo.logged_in) {
     return <Redirect to="profile" />;
