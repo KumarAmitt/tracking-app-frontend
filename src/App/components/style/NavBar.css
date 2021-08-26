@@ -6,7 +6,16 @@
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0.5em;
+}
+
+.navbar > * {
+  width: 100%;
+  height: 100%;
+  padding: 0.4em;
+}
+
+.navbar > *:not(:first-child) {
+  border-left: 1px solid dimgray;
 }
 
 .navbar a {
