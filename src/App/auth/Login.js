@@ -13,6 +13,7 @@ const Login = () => {
 
   const handleChange = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    document.querySelector('.auth-error').classList.add('hide');
   };
 
   const handleSubmit = async (e) => {
@@ -26,10 +27,10 @@ const Login = () => {
     dispatch(loadSession());
 
     if (!sessionInfo.logged_in) {
-      // console.log('confirm credentials');
-      const el = document.getElementById('form');
-      el.insertAdjacentHTML('beforeend', '<div style="color: red">Credentials Not Found</div>');
+      document.querySelector('.auth-error').classList.remove('hide');
     }
+
+    setNewUser({ ...newUser, password: '' });
   };
 
   // console.log('Login Screen: ', sessionInfo.logged_in);
@@ -42,11 +43,12 @@ const Login = () => {
     <>
       <AppBar title="Sign In" link="/registration" />
       <div className="auth">
-        <form onSubmit={handleSubmit} id="form">
+        <form onSubmit={handleSubmit}>
           <input type="text" name="username" placeholder="Username" value={newUser.username} onChange={handleChange} required />
           <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
           <button type="submit">Login</button>
         </form>
+        <div className="auth-error hide">Credentials Not Found</div>
         <div className="auth-sub">
           <p>New User Registration form</p>
           <Link to="/registration">Sign Up</Link>

@@ -29,6 +29,14 @@ form > button:hover {
   background-color: #1f6d1d;
 }
 
+.auth-error {
+  color: red;
+}
+
+.hide {
+  display: none;
+}
+
 .auth-sub {
   margin-top: 2em;
   text-align: center;
