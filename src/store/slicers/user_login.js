@@ -7,7 +7,6 @@ const loginSlice = createSlice({
   name: 'login',
   initialState: {
     loggedInUser: {},
-    signInUser: {},
     loading: false,
   },
   reducers: {
@@ -15,7 +14,6 @@ const loginSlice = createSlice({
       state.loading = true;
     },
     userLogin: (state, action) => {
-      state.signInUser = action.payload;
       if (action.payload.status === 401) {
         state.loggedInUser.status = action.payload.status;
       } else {
@@ -52,11 +50,6 @@ export const loginUser = (user) => apiCallBegan({
 
 export const getLoggedInStatus = createSelector(
   (state) => state.entities.auth.login.loggedInUser.status,
-  (status) => status === 'created',
-);
-
-export const getSignInStatus = createSelector(
-  (state) => state.entities.auth.login.signInUser.status,
   (status) => status === 'created',
 );
 
