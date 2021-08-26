@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../store/slicers/user_registration';
 import AppBar from '../components/AppBar';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
+import './style/auth.css';
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -45,15 +46,18 @@ const Registration = () => {
   return (
     <>
       <AppBar title="Sign up" link="/" />
-      <form onSubmit={handleSubmit} id="form">
-        <input type="text" name="username" placeholder="Username (4-8 character)" value={newUser.username} onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
-        <input type="password" name="password_confirmation" placeholder="Password Confirmation" value={newUser.password_confirmation} onChange={handleChange} required />
-        <button type="submit">Register</button>
-      </form>
-      <br />
-      <p>Existing users Login</p>
-      <Link to="/">Sign In</Link>
+      <div className="auth">
+        <form onSubmit={handleSubmit} id="form">
+          <input type="text" name="username" placeholder="Username (4-8 character)" value={newUser.username} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
+          <input type="password" name="password_confirmation" placeholder="Password Confirmation" value={newUser.password_confirmation} onChange={handleChange} required />
+          <button type="submit">Register</button>
+        </form>
+        <div className="auth-sub">
+          <p>Existing users Login</p>
+          <Link to="/">Sign In</Link>
+        </div>
+      </div>
     </>
   );
 };

@@ -22,7 +22,6 @@ function App() {
           <Route exact path="/track_details" component={TrackDetails} />
           <Route exact path="/progress" component={Progress} />
         </Switch>
-        <hr />
         <NavBar />
       </BrowserRouter>
     </>

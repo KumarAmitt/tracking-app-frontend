@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/slicers/user_login';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 import AppBar from '../components/AppBar';
+import './style/auth.css';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -40,14 +41,17 @@ const Login = () => {
   return (
     <>
       <AppBar title="Sign In" link="/registration" />
-      <form onSubmit={handleSubmit} id="form">
-        <input type="text" name="username" placeholder="Username" value={newUser.username} onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
-        <button type="submit">Login</button>
-      </form>
-      <br />
-      <p>New User Registration form</p>
-      <Link to="/registration">Sign Up</Link>
+      <div className="auth">
+        <form onSubmit={handleSubmit} id="form">
+          <input type="text" name="username" placeholder="Username" value={newUser.username} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
+          <button type="submit">Login</button>
+        </form>
+        <div className="auth-sub">
+          <p>New User Registration form</p>
+          <Link to="/registration">Sign Up</Link>
+        </div>
+      </div>
     </>
   );
 };
