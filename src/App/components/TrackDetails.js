@@ -1,23 +1,31 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
 import { TARGET } from '../../constants';
+import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 
 const TrackDetails = ({ location }) => {
   const { info, date } = location;
   const title = 'Track Details';
   const dispatch = useDispatch();
+  const sessionInfo = useSelector(getSessionInfo);
   const products = useSelector(getProducts);
   const todayTotal = info ? info.map((e) => e.premium).reduce((a, b) => a + b) : 0;
 
   useEffect(() => {
     dispatch(loadProducts());
+    dispatch(loadSession());
   }, []);
 
   // console.log(todayTotal);
+
+  if (!sessionInfo.logged_in) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <>
       <AppBar title={title} />

@@ -1,21 +1,28 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import AppBar from './AppBar';
 import { getAllDeals, loadDeals } from '../../store/slicers/deal';
+import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 
 const Track = () => {
   const title = 'Track Your Deal';
   const dispatch = useDispatch();
+  const sessionInfo = useSelector(getSessionInfo);
   const deals = useSelector(getAllDeals);
 
   useEffect(() => {
     dispatch(loadDeals());
+    dispatch(loadSession());
   }, []);
 
   // console.log(products);
   // console.log(deals);
   console.log('Deals: ', Object.entries(deals));
+
+  if (!sessionInfo.logged_in) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>
