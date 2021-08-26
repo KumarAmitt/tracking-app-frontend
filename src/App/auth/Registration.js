@@ -44,7 +44,7 @@ const Registration = () => {
 
   return (
     <>
-      <AppBar title="Sign up" />
+      <AppBar title="Sign up" link="/" />
       <form onSubmit={handleSubmit} id="form">
         <input type="text" name="username" placeholder="Username (4-8 character)" value={newUser.username} onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />

@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-      <AppBar title="Sign In" />
+      <AppBar title="Sign In" link="/registration" />
       <form onSubmit={handleSubmit} id="form">
         <input type="text" name="username" placeholder="Username" value={newUser.username} onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
