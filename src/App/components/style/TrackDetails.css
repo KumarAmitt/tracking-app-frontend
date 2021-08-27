@@ -16,12 +16,11 @@
 
 .details-item {
     background-color: #fff;
-    margin-top: 0.8em;
-    padding: 0.2em;
+    padding: 0.4em;
     text-align: center;
 }
 
-.details * + * {
+.details-item * + * {
     padding-top: 0.4em;
 }
 

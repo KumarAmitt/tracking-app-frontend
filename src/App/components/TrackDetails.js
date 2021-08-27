@@ -42,6 +42,7 @@ const TrackDetails = ({ location }) => {
                 <div className="ins-type">{products.length > 0 ? products.filter((f) => f.id === e.product_id)[0].product_name : ''}</div>
                 <div className="premium">
                   <span>&#8377;</span>
+                  {' '}
                   {e.premium}
                 </div>
                 <div className="appl-id">{e.application_id}</div>
