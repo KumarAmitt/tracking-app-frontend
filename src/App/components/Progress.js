@@ -7,6 +7,7 @@ import { getProgressReport, getTotalPremium, loadDeals } from '../../store/slice
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 import ProgressCircle from './ProgressCircle';
 import { TARGET } from '../../constants';
+import './style/Progress.css';
 
 const Progress = () => {
   const title = 'Progress Report';
@@ -37,15 +38,14 @@ const Progress = () => {
       <AppBar title={title} />
       <div className="progress-stats">
         <div>
-          <ProgressCircle value={progressPercent} />
-          <div>Achieved</div>
+          <ProgressCircle value={progressPercent} color="primary" />
+          <div className="progress-stats-label">Achieved</div>
         </div>
         <div>
-          <ProgressCircle value={100 - progressPercent} />
-          <div>Lag</div>
+          <ProgressCircle value={100 - progressPercent} color={progressPercent >= 100 ? 'primary' : 'secondary'} />
+          <div className="progress-stats-label">Lag</div>
         </div>
       </div>
-      <hr />
       <div>
         {
           Object.entries(progressReport).map((p) => (

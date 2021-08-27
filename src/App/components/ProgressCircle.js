@@ -4,9 +4,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-const ProgressCircle = ({ value }) => (
+const ProgressCircle = ({ value, color }) => (
   <Box position="relative" display="inline-flex">
-    <CircularProgress variant="determinate" value={value} />
+    <CircularProgress variant="determinate" value={value} color={color} />
     <Box
       top={0}
       left={0}
@@ -28,6 +28,7 @@ const ProgressCircle = ({ value }) => (
 
 ProgressCircle.propTypes = {
   value: PropTypes.number.isRequired,
+  color: PropTypes.number.isRequired,
 };
 
 export default ProgressCircle;

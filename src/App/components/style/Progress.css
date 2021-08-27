@@ -1,0 +1,22 @@
+.progress-stats{
+    display: flex;
+    justify-content: space-around;
+    padding: 2em 0;
+
+}
+
+.progress-stats > div {
+    text-align: center;
+}
+
+.progress-stats > * > *:first-child {
+    transform: scale(1.3);
+}
+
+.progress-stats-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 0.8em;
+}
