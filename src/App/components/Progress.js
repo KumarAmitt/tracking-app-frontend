@@ -23,7 +23,7 @@ const Progress = () => {
   }, []);
 
   // console.log('Total: ', totalPremium);
-  // console.log('Progress: ', progressReport);
+  console.log('Progress: ', progressReport);
 
   // Object.entries(progressReport).forEach((p) => {
   //   console.log(p[0], p[1].map((e) => e.premium).reduce((a, b) => a + b));
@@ -46,12 +46,21 @@ const Progress = () => {
           <div className="progress-stats-label">Lag</div>
         </div>
       </div>
-      <div>
+      <div className="progress-items">
         {
           Object.entries(progressReport).map((p) => (
-            <div key={p[0]}>
-              <div>{p[0]}</div>
-              <div>{p[1].map((e) => e.premium).reduce((a, b) => a + b)}</div>
+            <div key={p[0]} className="progress-item">
+              <div className="ins-type">{p[0]}</div>
+              <div className="ins-premium">
+                &#8377;
+                {' '}
+                {p[1].map((e) => e.premium).reduce((a, b) => a + b)}
+              </div>
+              <div className="ins-count">
+                Quantity:
+                {' '}
+                <span>{p[1].length}</span>
+              </div>
             </div>
           ))
         }
