@@ -24,11 +24,13 @@ ReactDOM.render(
 //
 // store.dispatch(loginUser({
 //   user: {
-//     username: 'user101',
+//     username: 'user103',
 //     password: 'asdf',
 //   },
 // }));
-//
+
+// console.log(d.headers.get('Set-Cookie');
+
 // store.dispatch(loadSession());
 
 // store.dispatch(logoutUser());

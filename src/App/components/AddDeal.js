@@ -6,6 +6,7 @@ import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
 import { createDeal } from '../../store/slicers/deal';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
+import './style/AddDeal.css';
 
 const AddDeal = () => {
   const appBarTitle = 'Add Deal';
@@ -54,16 +55,20 @@ const AddDeal = () => {
   return (
     <>
       <AppBar title={appBarTitle} link="/track" />
-      <form onSubmit={handleSubmit}>
-        <Select
-          options={products.map((p) => ({ label: p.product_name, value: p.id }))}
-          onChange={(e) => handleSelect(e.value)}
-          placeholder={<div id="select-placeholder">Select a product</div>}
-        />
-        <input type="text" name="applicationId" placeholder="Application ID" value={dealInfo.applicationId} onChange={handleChange} />
-        <input type="number" name="premium" placeholder="Premium" value={dealInfo.premium} onChange={handleChange} required />
-        <button type="submit">Next</button>
-      </form>
+      <div className="add-deal">
+        <form onSubmit={handleSubmit}>
+          <Select
+            className="react-select"
+            classNamePrefix="react-select"
+            options={products.map((p) => ({ label: p.product_name, value: p.id }))}
+            onChange={(e) => handleSelect(e.value)}
+            placeholder={<div id="select-placeholder">Select a product</div>}
+          />
+          <input type="text" name="applicationId" placeholder="Application ID" value={dealInfo.applicationId} onChange={handleChange} />
+          <input type="number" step="0.01" name="premium" placeholder="Premium" value={dealInfo.premium} onChange={handleChange} required />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </>
   );
 };

@@ -1,0 +1,8 @@
+.react-select .react-select__control {
+  border: none;
+}
+
+.add-deal form > * + * {
+   margin: 1em auto;
+    width: 90%;
+}
