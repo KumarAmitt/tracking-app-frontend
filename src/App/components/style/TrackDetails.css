@@ -1,0 +1,9 @@
+.details-header {
+    padding: 0.5em;
+}
+
+.details-header .date {
+   text-align: center;
+    font-weight: bold;
+}
+
