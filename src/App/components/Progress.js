@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+
 import AppBar from './AppBar';
 import { getProgressReport, getTotalPremium, loadDeals } from '../../store/slicers/deal';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
+import ProgressCircle from './ProgressCircle';
+import { TARGET } from '../../constants';
 
 const Progress = () => {
   const title = 'Progress Report';
   const dispatch = useDispatch();
-  const target = 600000;
   const sessionInfo = useSelector(getSessionInfo);
   const totalPremium = useSelector(getTotalPremium);
   const progressReport = useSelector(getProgressReport);
+  const progressPercent = (totalPremium / TARGET) * 100;
 
   useEffect(() => {
     dispatch(loadDeals());
@@ -32,18 +35,14 @@ const Progress = () => {
   return (
     <>
       <AppBar title={title} />
-      <div>
+      <div className="progress-stats">
         <div>
-          Achieved:
-          {totalPremium}
+          <ProgressCircle value={progressPercent} />
+          <div>Achieved</div>
         </div>
         <div>
-          Lagging:
-          {target - totalPremium}
-        </div>
-        <div>
-          Target:
-          {target}
+          <ProgressCircle value={100 - progressPercent} />
+          <div>Lag</div>
         </div>
       </div>
       <hr />
