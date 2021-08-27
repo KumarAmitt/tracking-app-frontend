@@ -26,6 +26,7 @@
   transition: all linear 300ms;
   cursor: pointer;
 }
+
 .logout-button div {
   margin-left: 0.5em;
 }
