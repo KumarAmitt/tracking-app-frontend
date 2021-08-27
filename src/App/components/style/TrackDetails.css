@@ -4,6 +4,36 @@
 
 .details-header .date {
    text-align: center;
-    font-weight: bold;
 }
 
+.details-items {
+    background-color: #eee;
+    padding: 1em 0.8em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.8em;
+}
+
+.details-item {
+    background-color: #fff;
+    margin-top: 0.8em;
+    padding: 0.2em;
+    text-align: center;
+}
+
+.details * + * {
+    padding-top: 0.4em;
+}
+
+.ins-type {
+    font-size: 0.8rem;
+}
+
+.appl-id {
+    font-size: 0.9rem;
+}
+
+.premium {
+    font-weight: bold;
+    color: var(--accent-primary);
+}

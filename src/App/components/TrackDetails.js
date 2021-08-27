@@ -35,14 +35,16 @@ const TrackDetails = ({ location }) => {
           <div className="date">{date}</div>
           <Stats today={todayTotal || 0} />
         </div>
-        <hr />
-        <div className="details-header">
+        <div className="details-items">
           {
             info && info.map((e) => (
-              <div key={e.id}>
-                <div>{products.length > 0 ? products.filter((f) => f.id === e.product_id)[0].product_name : ''}</div>
-                <div>{e.premium}</div>
-                <div>{e.application_id}</div>
+              <div key={e.id} className="details-item">
+                <div className="ins-type">{products.length > 0 ? products.filter((f) => f.id === e.product_id)[0].product_name : ''}</div>
+                <div className="premium">
+                  <span>&#8377;</span>
+                  {e.premium}
+                </div>
+                <div className="appl-id">{e.application_id}</div>
               </div>
             ))
           }
