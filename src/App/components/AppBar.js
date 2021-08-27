@@ -4,28 +4,16 @@ import { Link } from 'react-router-dom';
 import './style/AppBar.css';
 import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
 
-const AppBar = ({ title, link }) => {
-  let linkText = '';
-  switch (link) {
-    case '/add_deal':
-      linkText = 'ADD';
-      break;
-    default:
-      linkText = 'HOME';
-  }
-  console.log(linkText);
-
-  return (
-    <>
-      <div className="appbar">
-        <Link to={link}>
-          <ArrowBackIosOutlinedIcon />
-        </Link>
-        <div className="title">{title}</div>
-      </div>
-    </>
-  );
-};
+const AppBar = ({ title, link }) => (
+  <>
+    <div className="appbar">
+      <Link to={link}>
+        <ArrowBackIosOutlinedIcon />
+      </Link>
+      <div className="title">{title}</div>
+    </div>
+  </>
+);
 
 AppBar.propTypes = {
   title: PropTypes.string.isRequired,

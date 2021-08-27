@@ -12,7 +12,7 @@ const Stats = ({ today }) => {
     <div className="stats">
       <div className="stats-item">
         <div>{today}</div>
-        <div>Today</div>
+        <div>Day</div>
       </div>
       <div className="stats-item">
         <div>{totalPremium}</div>

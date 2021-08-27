@@ -28,7 +28,7 @@ const ProgressCircle = ({ value, color }) => (
 
 ProgressCircle.propTypes = {
   value: PropTypes.number.isRequired,
-  color: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default ProgressCircle;

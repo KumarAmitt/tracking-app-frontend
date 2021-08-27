@@ -23,7 +23,7 @@ const Progress = () => {
   }, []);
 
   // console.log('Total: ', totalPremium);
-  console.log('Progress: ', progressReport);
+  // console.log('Progress: ', progressReport);
 
   // Object.entries(progressReport).forEach((p) => {
   //   console.log(p[0], p[1].map((e) => e.premium).reduce((a, b) => a + b));
