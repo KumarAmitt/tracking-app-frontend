@@ -71,7 +71,7 @@ export const getProgressReport = createSelector(
   (progress) => (progress ? progress.items : 0),
 );
 
-export const getNewDealStatus = createSelector(
-  (state) => state.entities.deal.newDeal,
-  (newDeal) => newDeal.deal,
-);
+// export const getNewDealStatus = createSelector(
+//   (state) => state.entities.deal.newDeal,
+//   (newDeal) => newDeal.deal,
+// );

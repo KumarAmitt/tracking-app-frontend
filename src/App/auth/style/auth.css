@@ -1,5 +1,7 @@
 .auth {
   padding: 2em;
+  margin-top: 3em;
+  height: calc(100vh - 7em);
 }
 
 form {

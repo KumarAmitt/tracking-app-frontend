@@ -31,8 +31,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5em;
-  height: 62vh;
+  height: calc(100vh - 15.2em);
   overflow: auto;
+  grid-auto-rows: minmax(min-content, max-content);
 }
 
 .progress-item {

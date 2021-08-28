@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { Redirect } from 'react-router-dom';
 import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
-import { createDeal, getNewDealStatus } from '../../store/slicers/deal';
+import { createDeal } from '../../store/slicers/deal';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 import './style/AddDeal.css';
 
@@ -13,7 +13,6 @@ const AddDeal = () => {
   const dispatch = useDispatch();
   const products = useSelector(getProducts);
   const sessionInfo = useSelector(getSessionInfo);
-  const newDealStatus = useSelector(getNewDealStatus);
   const [dealInfo, setDealInfo] = useState({ productId: 0, applicationId: '', premium: '' });
 
   useEffect(() => {
@@ -51,7 +50,6 @@ const AddDeal = () => {
     return <Redirect to="/" />;
   }
 
-  console.log(newDealStatus);
   return (
     <>
       <AppBar title={appBarTitle} link="/track" />
