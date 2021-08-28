@@ -16,9 +16,11 @@ const dealSlice = createSlice({
     },
     dealCreated: (state, action) => {
       state.newDeal = action.payload;
+      state.loading = false;
     },
     dealReceived: (state, action) => {
       state.deals = action.payload;
+      state.loading = false;
     },
     dealRequestFailed: (state, action) => {
       state.loading = false;
@@ -67,4 +69,9 @@ export const getTotalPremium = createSelector(
 export const getProgressReport = createSelector(
   (state) => state.entities.deal.deals.progress,
   (progress) => (progress ? progress.items : 0),
+);
+
+export const getNewDealStatus = createSelector(
+  (state) => state.entities.deal.newDeal,
+  (newDeal) => newDeal.deal,
 );

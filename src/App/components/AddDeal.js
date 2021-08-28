@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { Redirect } from 'react-router-dom';
 import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
-import { createDeal } from '../../store/slicers/deal';
+import { createDeal, getNewDealStatus } from '../../store/slicers/deal';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 import './style/AddDeal.css';
 
@@ -13,6 +13,7 @@ const AddDeal = () => {
   const dispatch = useDispatch();
   const products = useSelector(getProducts);
   const sessionInfo = useSelector(getSessionInfo);
+  const newDealStatus = useSelector(getNewDealStatus);
   const [dealInfo, setDealInfo] = useState({ productId: 0, applicationId: '', premium: '' });
 
   useEffect(() => {
@@ -22,6 +23,10 @@ const AddDeal = () => {
 
   const handleChange = (e) => {
     setDealInfo({ ...dealInfo, [e.target.name]: e.target.value });
+    const el = document.querySelector('.saved-status');
+    if (el) {
+      el.style.display = 'none';
+    }
   };
 
   const handleSelect = (e) => {
@@ -35,7 +40,6 @@ const AddDeal = () => {
       el.innerHTML = 'Product must be selected';
       el.style.color = 'red';
     } else {
-      // console.log(dealInfo);
       dispatch(createDeal({
         product_id: dealInfo.productId,
         application_id: dealInfo.applicationId,
@@ -51,7 +55,6 @@ const AddDeal = () => {
     return <Redirect to="/" />;
   }
 
-  // console.log(products);
   return (
     <>
       <AppBar title={appBarTitle} link="/track" />
@@ -68,6 +71,9 @@ const AddDeal = () => {
           <input type="number" step="0.01" name="premium" placeholder="Premium" value={dealInfo.premium} onChange={handleChange} required />
           <button type="submit">Submit</button>
         </form>
+        {
+          newDealStatus && <div className="saved-status">Record saved successfully.</div>
+        }
       </div>
     </>
   );

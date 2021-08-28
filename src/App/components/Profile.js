@@ -20,10 +20,6 @@ const Profile = () => {
     dispatch(loadSession());
   };
 
-  // console.log(sessionInfo);
-  // if (!sessionInfo.logged_in) {
-  //   return <Redirect to="/" />;
-  // }
   if (!sessionInfo.logged_in) {
     return <Redirect to="/" />;
   }

@@ -21,8 +21,6 @@ const TrackDetails = ({ location }) => {
     dispatch(loadSession());
   }, []);
 
-  // console.log(todayTotal);
-
   if (!sessionInfo.logged_in) {
     return <Redirect to="/" />;
   }

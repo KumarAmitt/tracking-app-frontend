@@ -48,5 +48,5 @@ form > button:hover {
 }
 
 .auth .progress-bar > * {
- background-color: var(--accent-primary);
+  background-color: var(--accent-primary);
 }

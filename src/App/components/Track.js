@@ -18,10 +18,6 @@ const Track = () => {
     dispatch(loadSession());
   }, []);
 
-  // console.log(products);
-  // console.log(deals);
-  // console.log('Deals: ', Object.entries(deals));
-
   if (!sessionInfo.logged_in) {
     return <Redirect to="/" />;
   }
