@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../store/slicers/user_login';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import { getLoggedInStatus, getLoginProgress, loginUser } from '../../store/slicers/user_login';
 import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
 import AppBar from '../components/AppBar';
 import './style/auth.css';
@@ -9,6 +10,8 @@ import './style/auth.css';
 const Login = () => {
   const dispatch = useDispatch();
   const sessionInfo = useSelector(getSessionInfo);
+  const loggedInStatus = useSelector(getLoggedInStatus);
+  const loginProgress = useSelector(getLoginProgress);
   const [newUser, setNewUser] = useState({ username: '', password: '' });
 
   const handleChange = (e) => {
@@ -26,15 +29,13 @@ const Login = () => {
     }));
     dispatch(loadSession());
 
-    if (!sessionInfo.logged_in) {
+    if (!loggedInStatus) {
       document.querySelector('.auth-error').classList.remove('hide');
     }
 
     setNewUser({ ...newUser, password: '' });
   };
 
-  // console.log('Login Screen: ', sessionInfo.logged_in);
-  // console.log('Login Screen: ', loggedInStatus);
   if (sessionInfo.logged_in) {
     return <Redirect to="/profile" />;
   }
@@ -48,7 +49,10 @@ const Login = () => {
           <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleChange} required />
           <button type="submit">Login</button>
         </form>
-        <div className="auth-error hide">Credentials Not Found</div>
+        {
+          loginProgress && <LinearProgress className="progress-bar" />
+        }
+        <div className="auth-error hide">Credentials Not Available</div>
         <div className="auth-sub">
           <p>New User Registration form</p>
           <Link to="/registration">Sign Up</Link>

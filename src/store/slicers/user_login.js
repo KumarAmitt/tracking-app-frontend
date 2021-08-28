@@ -53,9 +53,7 @@ export const getLoggedInStatus = createSelector(
   (status) => status === 'created',
 );
 
-// SELECTOR
-
-export const getLoginInfo = createSelector(
-  (state) => state.entities.auth.login.loggedInUser,
-  (loggedInUser) => (loggedInUser.status === 'created' ? loggedInUser : false),
+export const getLoginProgress = createSelector(
+  (state) => state.entities.auth.login.loading,
+  (loading) => loading,
 );

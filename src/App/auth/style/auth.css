@@ -46,3 +46,7 @@ form > button:hover {
   text-decoration: none;
   color: var(--accent-primary);
 }
+
+.auth .progress-bar > * {
+ background-color: var(--accent-primary);
+}
