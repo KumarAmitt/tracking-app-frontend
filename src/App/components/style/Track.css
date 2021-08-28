@@ -1,6 +1,8 @@
 .track {
   background-color: #eee;
-  height: 100vh;
+  margin-top: 3em;
+  height: calc(100vh - 7em);
+  padding: 0.2em 0;
 }
 
 .not-found {

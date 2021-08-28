@@ -23,10 +23,6 @@ const AddDeal = () => {
 
   const handleChange = (e) => {
     setDealInfo({ ...dealInfo, [e.target.name]: e.target.value });
-    const el = document.querySelector('.saved-status');
-    if (el) {
-      el.style.display = 'none';
-    }
   };
 
   const handleSelect = (e) => {
@@ -55,6 +51,7 @@ const AddDeal = () => {
     return <Redirect to="/" />;
   }
 
+  console.log(newDealStatus);
   return (
     <>
       <AppBar title={appBarTitle} link="/track" />
@@ -71,9 +68,6 @@ const AddDeal = () => {
           <input type="number" step="0.01" name="premium" placeholder="Premium" value={dealInfo.premium} onChange={handleChange} required />
           <button type="submit">Submit</button>
         </form>
-        {
-          newDealStatus && <div className="saved-status">Record saved successfully.</div>
-        }
       </div>
     </>
   );
