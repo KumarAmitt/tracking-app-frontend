@@ -35,4 +35,3 @@ export const logoutUser = () => apiCallBegan({
   withCredentials: true,
   onSuccess: userLogout.type,
 });
-
