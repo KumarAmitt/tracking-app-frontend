@@ -44,4 +44,30 @@ describe('User Logout', () => {
       expect(logoutSlice().logout).toMatchObject({});
     });
   });
+
+  describe('loading Indicator', () => {
+    it('should return true while logging out', () => {
+      fakeAxios.onDelete('/logout').reply(() => {
+        expect(logoutSlice().loading).toBe(true);
+        return [200, logoutSuccess];
+      });
+      store.dispatch(logoutUser());
+    });
+
+    it('should be false after successful logout', async () => {
+      fakeAxios.onDelete('/logout').reply(200, logoutSuccess);
+
+      await store.dispatch(logoutUser());
+
+      expect(logoutSlice().loading).toBe(false);
+    });
+
+    it('should be false if server error detected', async () => {
+      fakeAxios.onDelete('/logout').reply(500);
+
+      await store.dispatch(logoutUser());
+
+      expect(logoutSlice().loading).toBe(false);
+    });
+  });
 });
