@@ -50,10 +50,10 @@ export const getRegistrationStatus = createSelector(
   (status) => status === 'created',
 );
 
-export const getRegistrationInfo = createSelector(
-  (state) => state.entities.auth.registration.registration,
-  (registration) => (registration.status === 'created' ? registration : false),
-);
+// export const getRegistrationInfo = createSelector(
+//   (state) => state.entities.auth.registration.registration,
+//   (registration) => (registration.status === 'created' ? registration : false),
+// );
 
 export const getRegistrationProgress = createSelector(
   (state) => state.entities.auth.registration.loading,
