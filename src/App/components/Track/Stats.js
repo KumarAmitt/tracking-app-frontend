@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { TARGET } from '../../constants';
-import { getTotalPremium } from '../../store/slicers/deal';
+import { TARGET } from '../../../constants';
+import { getTotalPremium } from '../../../store/slicers/deal';
 import './style/Stats.css';
 
 const Stats = ({ today }) => {

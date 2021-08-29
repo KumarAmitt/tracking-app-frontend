@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { getRegistrationProgress, getRegistrationStatus, registerUser } from '../../store/slicers/userRegistration';
-import AppBar from '../components/AppBar';
-import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
+import { getRegistrationProgress, getRegistrationStatus, registerUser } from '../../../store/slicers/userRegistration';
+import AppBar from '../AppBar/AppBar';
+import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
 import './style/auth.css';
 
 const Registration = () => {

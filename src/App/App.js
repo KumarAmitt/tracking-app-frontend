@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import Registration from './auth/Registration';
-import Login from './auth/Login';
-import Profile from './components/Profile';
-import AddDeal from './components/AddDeal';
-import Track from './components/Track';
-import Progress from './components/Progress';
-import TrackDetails from './components/TrackDetails';
+import NavBar from './components/NavBar/NavBar';
+import Registration from './components/auth/Registration';
+import Login from './components/auth/Login';
+import Profile from './components/Profile/Profile';
+import AddDeal from './components/AddDeal/AddDeal';
+import Track from './components/Track/Track';
+import Progress from './components/Progress/Progress';
+import TrackDetails from './components/Track/TrackDetails';
 
 function App() {
   return (

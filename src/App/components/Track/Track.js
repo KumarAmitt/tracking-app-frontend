@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import AppBar from './AppBar';
-import { getAllDeals, loadDeals } from '../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
+import AppBar from '../AppBar/AppBar';
+import { getAllDeals, loadDeals } from '../../../store/slicers/deal';
+import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
 import './style/Track.css';
 
 const Track = () => {

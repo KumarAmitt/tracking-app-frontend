@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import AppBar from './AppBar';
-import { getProducts, loadProducts } from '../../store/slicers/product';
-import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
+import AppBar from '../AppBar/AppBar';
+import { getProducts, loadProducts } from '../../../store/slicers/product';
+import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
 import './style/TrackDetails.css';
 import Stats from './Stats';
 

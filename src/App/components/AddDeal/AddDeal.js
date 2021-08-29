@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { Redirect } from 'react-router-dom';
-import AppBar from './AppBar';
-import { getProducts, loadProducts } from '../../store/slicers/product';
-import { createDeal } from '../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
+import AppBar from '../AppBar/AppBar';
+import { getProducts, loadProducts } from '../../../store/slicers/product';
+import { createDeal } from '../../../store/slicers/deal';
+import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
 import './style/AddDeal.css';
 
 const AddDeal = () => {

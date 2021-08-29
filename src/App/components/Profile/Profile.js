@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
-import { logoutUser } from '../../store/slicers/userLogout';
-import AppBar from './AppBar';
+import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
+import { logoutUser } from '../../../store/slicers/userLogout';
+import AppBar from '../AppBar/AppBar';
 import './style/Profile.css';
 
 const Profile = () => {

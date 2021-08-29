@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import AppBar from './AppBar';
-import { getProgressReport, getTotalPremium, loadDeals } from '../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
-import ProgressCircle from './ProgressCircle';
-import { TARGET } from '../../constants';
+import AppBar from '../AppBar/AppBar';
+import { getProgressReport, getTotalPremium, loadDeals } from '../../../store/slicers/deal';
+import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
+import ProgressCircle from '../utility/ProgressCircle';
+import { TARGET } from '../../../constants';
 import './style/Progress.css';
 
 const Progress = () => {
