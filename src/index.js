@@ -17,11 +17,22 @@ ReactDOM.render(
 //-----------------------------------
 
 // import configureAppStore from './store/configureStore';
-// import { loginUser } from './store/slicers/user_login';
-// import { loadSession } from './store/slicers/user_session';
+// // import { registerUser } from './store/slicers/userRegistration';
 //
 // const store = configureAppStore();
 //
+// console.log(store.getState());
+// store.dispatch(registerUser({
+//   user: {
+//     username: 'user203',
+//     password: 'asdf',
+//     password_confirmation: 'asdf',
+//   },
+// }));
+//
+// const r = store.getState().entities.auth.registration;
+// console.log(r);
+
 // store.dispatch(loginUser({
 //   user: {
 //     username: 'user103',
