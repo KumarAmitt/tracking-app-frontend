@@ -40,5 +40,31 @@ describe('Current user session', () => {
         expect(sessionSlice().sessionInfo).toMatchObject({});
       });
     });
+
+    describe('loading Indicator', () => {
+      it('should return true fetching session data', () => {
+        fakeAxios.onGet('/logged_in').reply(() => {
+          expect(sessionSlice().loading).toBe(true);
+          return [200, { logged_in: false }];
+        });
+        store.dispatch(loadSession());
+      });
+
+      it('should be false after loading session', async () => {
+        fakeAxios.onGet('/logged_in').reply(200, { logged_in: true });
+
+        await store.dispatch(loadSession());
+
+        expect(sessionSlice().loading).toBe(false);
+      });
+
+      it('should be false if session loading failed', async () => {
+        fakeAxios.onGet('/logged_in').reply(500);
+
+        await store.dispatch(loadSession());
+
+        expect(sessionSlice().loading).toBe(false);
+      });
+    });
   });
 });
