@@ -1,8 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import configureAppStore from '../configureStore';
-import { loginUser } from '../slicers/userLogin';
-import { registerUser } from '../slicers/userRegistration';
+import { getLoggedInStatus, getLoginProgress, loginUser } from '../slicers/userLogin';
 
 describe('Existing user Login', () => {
   describe('user login action', () => {
@@ -45,7 +44,7 @@ describe('Existing user Login', () => {
       it('should NOT perform login operation on Network error', async () => {
         fakeAxios.onPost('/sessions').reply(500);
 
-        await store.dispatch(registerUser(loginCredentials));
+        await store.dispatch(loginUser(loginCredentials));
 
         expect(loginSlice()).toMatchObject({});
       });
@@ -63,7 +62,7 @@ describe('Existing user Login', () => {
       it('should be false after successful login', async () => {
         fakeAxios.onPost('/sessions').reply(200, loginSuccess);
 
-        await store.dispatch(registerUser(loginCredentials));
+        await store.dispatch(loginUser(loginCredentials));
 
         expect(loginSlice().loading).toBe(false);
       });
@@ -71,9 +70,58 @@ describe('Existing user Login', () => {
       it('should be false if server error detected', async () => {
         fakeAxios.onPost('/sessions').reply(500);
 
-        await store.dispatch(registerUser(loginCredentials));
+        await store.dispatch(loginUser(loginCredentials));
 
         expect(loginSlice().loading).toBe(false);
+      });
+    });
+  });
+
+  describe('selectors', () => {
+    const createState = () => ({
+      entities: {
+        auth: {
+          login: {
+            loggedInUser: {},
+            loading: false,
+          },
+        },
+      },
+    });
+
+    let state;
+
+    beforeEach(() => {
+      state = createState();
+    });
+
+    describe('getLoggedInStatus', () => {
+      it('should return TRUE if user logged in successfully with status of "created" ', () => {
+        state.entities.auth.login.loggedInUser = { status: 'created' };
+
+        const result = getLoggedInStatus(state);
+
+        expect(result).toBeTruthy();
+      });
+
+      it('should return FALSE for unsuccessful login', () => {
+        state.entities.auth.login.loggedInUser = {};
+
+        const result = getLoggedInStatus(state);
+
+        expect(result).toBeFalsy();
+      });
+    });
+
+    describe('getLoginProgress', () => {
+      it('return TRUE if loading state is true', () => {
+        state.entities.auth.login.loading = true;
+        const result = getLoginProgress(state);
+        expect(result).toBeTruthy();
+      });
+      it('return FALSE if loading state is true', () => {
+        const result = getLoginProgress(state);
+        expect(result).toBeFalsy();
       });
     });
   });
