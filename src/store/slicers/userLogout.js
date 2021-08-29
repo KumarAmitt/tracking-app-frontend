@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createSelector } from 'reselect';
 import { apiCallBegan } from '../api';
 
 /* eslint-disable */
@@ -37,9 +36,3 @@ export const logoutUser = () => apiCallBegan({
   onSuccess: userLogout.type,
 });
 
-// SELECTOR
-
-export const getLoggedOutStatus = createSelector(
-  (state) => state.entities.auth.logout.logout.loggedOut,
-  (loggedOut) => loggedOut,
-);
