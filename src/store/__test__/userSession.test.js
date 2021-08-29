@@ -1,7 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import configureAppStore from '../configureStore';
-import { loadSession } from '../slicers/userSession';
+import { getSessionInfo, loadSession } from '../slicers/userSession';
 
 describe('Current user session', () => {
   describe('session Information', () => {
@@ -64,6 +64,51 @@ describe('Current user session', () => {
         await store.dispatch(loadSession());
 
         expect(sessionSlice().loading).toBe(false);
+      });
+    });
+  });
+
+  describe('selector', () => {
+    const createState = () => ({
+      entities: {
+        auth: {
+          session: {
+            sessionInfo: {},
+            loading: false,
+          },
+        },
+      },
+    });
+
+    let state;
+
+    beforeEach(() => {
+      state = createState();
+    });
+
+    describe('getSessionInfo', () => {
+      it('should return sessionInfo as as object with logged_in set to true if session loaded', () => {
+        state.entities.auth.session.sessionInfo = { logged_in: true };
+
+        const result = getSessionInfo(state);
+
+        expect(result.logged_in).toBeTruthy();
+      });
+
+      it('should return sessionInfo as as object with logged_in set to false if session destroyed', () => {
+        state.entities.auth.session.sessionInfo = { logged_in: false };
+
+        const result = getSessionInfo(state);
+
+        expect(result.logged_in).toBeFalsy();
+      });
+
+      it('should return sessionInfo as an empty object id session NOT created', () => {
+        state.entities.auth.session.sessionInfo = {};
+
+        const result = getSessionInfo(state);
+
+        expect(result).toMatchObject({});
       });
     });
   });
