@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import AppBar from './AppBar';
 import { getProgressReport, getTotalPremium, loadDeals } from '../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
+import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
 import ProgressCircle from './ProgressCircle';
 import { TARGET } from '../../constants';
 import './style/Progress.css';

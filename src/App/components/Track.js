@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import AppBar from './AppBar';
 import { getAllDeals, loadDeals } from '../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
+import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
 import './style/Track.css';
 
 const Track = () => {

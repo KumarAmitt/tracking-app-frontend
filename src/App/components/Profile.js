@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
-import { logoutUser } from '../../store/slicers/user_logout';
+import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
+import { logoutUser } from '../../store/slicers/userLogout';
 import AppBar from './AppBar';
 import './style/Profile.css';
 

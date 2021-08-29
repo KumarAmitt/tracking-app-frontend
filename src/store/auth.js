@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import registrationReducer from './slicers/user_registration';
-import loginReducer from './slicers/user_login';
-import logoutReducer from './slicers/user_logout';
-import sessionReducer from './slicers/user_session';
+import registrationReducer from './slicers/userRegistration';
+import loginReducer from './slicers/userLogin';
+import logoutReducer from './slicers/userLogout';
+import sessionReducer from './slicers/userSession';
 
 export default combineReducers({
   registration: registrationReducer,

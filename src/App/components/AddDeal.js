@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import AppBar from './AppBar';
 import { getProducts, loadProducts } from '../../store/slicers/product';
 import { createDeal } from '../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../store/slicers/user_session';
+import { getSessionInfo, loadSession } from '../../store/slicers/userSession';
 import './style/AddDeal.css';
 
 const AddDeal = () => {
