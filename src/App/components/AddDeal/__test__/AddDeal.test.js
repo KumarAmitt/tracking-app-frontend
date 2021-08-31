@@ -8,6 +8,7 @@ import configureAppStore from '../../../../store/configureStore';
 const store = configureAppStore();
 
 describe('AddDeal', () => {
+
   test('should match the snapshot of AddDeal component', () => {
     const tree = renderer.create(
       <Provider store={store}>

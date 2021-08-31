@@ -64,7 +64,7 @@ const AddDeal = () => {
           />
           <input type="text" name="applicationId" placeholder="Application ID" value={dealInfo.applicationId} onChange={handleChange} />
           <input type="number" step="0.01" name="premium" placeholder="Premium" value={dealInfo.premium} onChange={handleChange} required />
-          <button type="submit">Submit</button>
+          <button type="submit" data-testid="submit">Submit</button>
         </form>
       </div>
     </>
