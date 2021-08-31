@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
 import AppBar from '../AppBar/AppBar';
 import { getProgressReport, getTotalPremium, loadDeals } from '../../../store/slicers/deal';
 import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
