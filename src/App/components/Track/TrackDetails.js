@@ -4,24 +4,24 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import AppBar from '../AppBar/AppBar';
 import { getProducts, loadProducts } from '../../../store/slicers/product';
-import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
 import './style/TrackDetails.css';
 import Stats from './Stats';
+import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const TrackDetails = ({ location }) => {
   const { info, date } = location;
   const title = 'Track Details';
   const dispatch = useDispatch();
-  const sessionInfo = useSelector(getSessionInfo);
+  const userInfo = useSelector(getUserInfo);
   const products = useSelector(getProducts);
   const todayTotal = info ? info.map((e) => e.premium).reduce((a, b) => a + b) : 0;
 
   useEffect(() => {
-    dispatch(loadProducts());
     dispatch(loadSession());
+    dispatch(loadProducts());
   }, []);
 
-  if (!sessionInfo.logged_in) {
+  if (!userInfo.logged_in) {
     return <Redirect to="/" />;
   }
 

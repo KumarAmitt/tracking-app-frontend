@@ -6,7 +6,7 @@ import AppBar from '../AppBar/AppBar';
 import { getProducts, loadProducts } from '../../../store/slicers/product';
 import { createDeal } from '../../../store/slicers/deal';
 import './style/AddDeal.css';
-import { getUserInfo } from '../../../store/slicers/user';
+import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const AddDeal = () => {
   const appBarTitle = 'Add Deal';
@@ -19,6 +19,7 @@ const AddDeal = () => {
   const [premium, setPremium] = useState('');
 
   useEffect(() => {
+    dispatch(loadSession());
     dispatch(loadProducts());
   }, []);
 

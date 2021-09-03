@@ -5,7 +5,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import AppBar from '../AppBar/AppBar';
 import { getAllDeals, loadDeals } from '../../../store/slicers/deal';
 import './style/Track.css';
-import { getUserInfo } from '../../../store/slicers/user';
+import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const Track = () => {
   const title = 'Track Your Deal';
@@ -15,6 +15,7 @@ const Track = () => {
   const deals = useSelector(getAllDeals);
 
   useEffect(() => {
+    dispatch(loadSession());
     dispatch(loadDeals());
   }, []);
 

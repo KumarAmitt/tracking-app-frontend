@@ -7,7 +7,7 @@ import { getProgressReport, getTotalPremium, loadDeals } from '../../../store/sl
 import ProgressCircle from '../utility/ProgressCircle';
 import { TARGET } from '../../../constants';
 import './style/Progress.css';
-import { getUserInfo } from '../../../store/slicers/user';
+import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const Progress = () => {
   const title = 'Progress Report';
@@ -18,6 +18,7 @@ const Progress = () => {
   const progressPercent = (totalPremium / TARGET) * 100;
 
   useEffect(() => {
+    dispatch(loadSession());
     dispatch(loadDeals());
   }, []);
 
