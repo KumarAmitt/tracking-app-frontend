@@ -29,11 +29,23 @@ Array [
   <div
     className="auth"
   >
+    <div
+      className="auth-sub"
+    >
+      <p>
+        Are you a new user?
+      </p>
+      <a
+        href="/registration"
+        onClick={[Function]}
+      >
+        Sign Up
+      </a>
+    </div>
     <form
       onSubmit={[Function]}
     >
       <input
-        name="username"
         onChange={[Function]}
         placeholder="Username"
         required={true}
@@ -41,7 +53,6 @@ Array [
         value=""
       />
       <input
-        name="password"
         onChange={[Function]}
         placeholder="Password"
         required={true}
@@ -54,24 +65,6 @@ Array [
         Login
       </button>
     </form>
-    <div
-      className="auth-error hide"
-    >
-      Credentials Not Available
-    </div>
-    <div
-      className="auth-sub"
-    >
-      <p>
-        New User Registration form
-      </p>
-      <a
-        href="/registration"
-        onClick={[Function]}
-      >
-        Sign Up
-      </a>
-    </div>
   </div>,
 ]
 `;

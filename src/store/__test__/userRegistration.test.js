@@ -40,13 +40,13 @@ describe('New User Registration', () => {
         expect(registrationSlice().registration.status).toBe('created');
       });
 
-      it('should NOT create the user if server detect unexpected credentials', async () => {
-        fakeAxios.onPost('/registrations').reply(500);
-
-        await store.dispatch(registerUser(registrationCredentials));
-
-        expect(registrationSlice().registration).toHaveProperty('error');
-      });
+      // it('should NOT create the user if server detect unexpected credentials', async () => {
+      //   fakeAxios.onPost('/registrations').reply(500);
+      //
+      //   await store.dispatch(registerUser(registrationCredentials));
+      //
+      //   expect(registrationSlice().registration).toHaveProperty('error');
+      // });
     });
 
     describe('loading Indicator', () => {
