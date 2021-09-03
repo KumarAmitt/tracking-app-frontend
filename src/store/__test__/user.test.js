@@ -1,7 +1,9 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import configureAppStore from '../configureStore';
-import { registerUser, loginUser, loadSession } from '../slicers/user';
+import {
+  registerUser, loginUser, loadSession, logoutUser,
+} from '../slicers/user';
 
 describe('Existing user Login', () => {
   let fakeAxios;
@@ -95,7 +97,6 @@ describe('Existing user Login', () => {
 
           await store.dispatch(loadSession());
 
-          console.log(userSlice());
           expect(userSlice().info.logged_in).toBeFalsy();
         });
 
@@ -106,6 +107,25 @@ describe('Existing user Login', () => {
 
           expect(userSlice().info).toMatchObject({});
         });
+      });
+    });
+
+    describe('Logout action', () => {
+      it('should logout the current user with status code 200', async () => {
+        fakeAxios.onDelete('/sessions').reply(200, { status: 200, logged_in: false });
+
+        await store.dispatch(logoutUser());
+
+        expect(userSlice().info.status).toBe(200);
+        expect(userSlice().info.logged_in).toBeFalsy();
+      });
+
+      it('should NOT logout the user if network error found', async () => {
+        fakeAxios.onDelete('/logout').reply(500);
+
+        await store.dispatch(logoutUser());
+        console.log(userSlice());
+        expect(userSlice().info).toMatchObject({});
       });
     });
   });
