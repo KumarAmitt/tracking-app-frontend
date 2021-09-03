@@ -3,25 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import AppBar from '../AppBar/AppBar';
 import { getProgressReport, getTotalPremium, loadDeals } from '../../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
+
 import ProgressCircle from '../utility/ProgressCircle';
 import { TARGET } from '../../../constants';
 import './style/Progress.css';
+import { getUserInfo } from '../../../store/slicers/user';
 
 const Progress = () => {
   const title = 'Progress Report';
   const dispatch = useDispatch();
-  const sessionInfo = useSelector(getSessionInfo);
+  const userInfo = useSelector(getUserInfo);
   const totalPremium = useSelector(getTotalPremium);
   const progressReport = useSelector(getProgressReport);
   const progressPercent = (totalPremium / TARGET) * 100;
 
   useEffect(() => {
     dispatch(loadDeals());
-    dispatch(loadSession());
   }, []);
 
-  if (!sessionInfo.logged_in) {
+  if (!userInfo.logged_in) {
     return <Redirect to="/" />;
   }
 
