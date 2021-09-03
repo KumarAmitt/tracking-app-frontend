@@ -25,9 +25,11 @@ form > button {
   background-color: var(--action-color);
   font-weight: bold;
   color: #eee;
-  padding: 1em;
   text-transform: uppercase;
-  border: none;
+}
+
+.auth form > button {
+  padding: 1em;
   position: fixed;
   left: 0;
   right: 0;
