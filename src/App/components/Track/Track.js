@@ -4,21 +4,21 @@ import { Link, Redirect } from 'react-router-dom';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import AppBar from '../AppBar/AppBar';
 import { getAllDeals, loadDeals } from '../../../store/slicers/deal';
-import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
 import './style/Track.css';
+import { getUserInfo } from '../../../store/slicers/user';
 
 const Track = () => {
   const title = 'Track Your Deal';
   const dispatch = useDispatch();
-  const sessionInfo = useSelector(getSessionInfo);
+
+  const userInfo = useSelector(getUserInfo);
   const deals = useSelector(getAllDeals);
 
   useEffect(() => {
     dispatch(loadDeals());
-    dispatch(loadSession());
   }, []);
 
-  if (!sessionInfo.logged_in) {
+  if (!userInfo.logged_in) {
     return <Redirect to="/" />;
   }
 
