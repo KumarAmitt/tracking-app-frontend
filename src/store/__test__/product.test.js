@@ -13,7 +13,7 @@ describe('productSlice', () => {
       store = configureAppStore();
     });
 
-    const productSlice = () => store.getState().entities.product;
+    const productSlice = () => store.getState().product;
 
     const products = {
       products: [
@@ -75,11 +75,9 @@ describe('productSlice', () => {
 
   describe('selector', () => {
     const createState = () => ({
-      entities: {
-        product: {
-          products: [],
-          loading: false,
-        },
+      product: {
+        products: [],
+        loading: false,
       },
     });
 
@@ -91,7 +89,7 @@ describe('productSlice', () => {
 
     describe('getProducts', () => {
       it('should return all the products available in store ', () => {
-        state.entities.product.products = [{ id: 1, product_name: 'p1' }, { id: 2, product_name: 'p2' }];
+        state.product.products = [{ id: 1, product_name: 'p1' }, { id: 2, product_name: 'p2' }];
 
         const result = getProducts(state);
 

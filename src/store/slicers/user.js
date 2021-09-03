@@ -69,11 +69,11 @@ export const logoutUser = () => apiCallBegan({
 // SELECTOR
 
 export const getUserInfo = createSelector(
-  (state) => state.entities.user.info,
+  (state) => state.user.info,
   (info) => info,
 );
 
 export const getUserLoadingStatus = createSelector(
-  (state) => state.entities.user.loading,
+  (state) => state.user.loading,
   (loading) => loading,
 );

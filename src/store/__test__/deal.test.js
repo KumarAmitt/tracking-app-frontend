@@ -15,7 +15,7 @@ describe('dealSlice', () => {
       store = configureAppStore();
     });
 
-    const dealSlice = () => store.getState().entities.deal;
+    const dealSlice = () => store.getState().deal;
 
     describe('creating deals', () => {
       const newDeal = {
@@ -140,12 +140,10 @@ describe('dealSlice', () => {
 
   describe('selectors', () => {
     const createState = () => ({
-      entities: {
-        deal: {
-          newDeal: [],
-          deals: [],
-          loading: false,
-        },
+      deal: {
+        newDeal: [],
+        deals: [],
+        loading: false,
       },
     });
 
@@ -157,7 +155,7 @@ describe('dealSlice', () => {
 
     describe('getAllDeals', () => {
       it('should return all the deals information if fetched successfully', () => {
-        state.entities.deal.deals.all = {
+        state.deal.deals.all = {
           '2021-08-29': [{ id: 1, product_id: 1, premium: 2000 }],
           '2021-08-30': [{ id: 2, product_id: 4, premium: 2000 }],
         };
@@ -167,7 +165,7 @@ describe('dealSlice', () => {
       });
 
       it('should return 0 if the deals > all are not found', () => {
-        state.entities.deal.deals = [];
+        state.deal.deals = [];
 
         const result = getAllDeals(state);
 
@@ -177,7 +175,7 @@ describe('dealSlice', () => {
 
     describe('getTotalPremium', () => {
       it('should return sum of premiums of all the deal if progress object present', () => {
-        state.entities.deal.deals.progress = { sum_premium: 4000 };
+        state.deal.deals.progress = { sum_premium: 4000 };
 
         const result = getTotalPremium(state);
 
@@ -185,7 +183,7 @@ describe('dealSlice', () => {
       });
 
       it('should return 0 if progress data is not available', () => {
-        state.entities.deal.deals = [];
+        state.deal.deals = [];
 
         const result = getTotalPremium(state);
 
@@ -195,7 +193,7 @@ describe('dealSlice', () => {
 
     describe('getProgressReport', () => {
       it('should return all the deal items within progress if available', () => {
-        state.entities.deal.deals.progress = {
+        state.deal.deals.progress = {
           items: {
             Fire: [{ id: 2, product_id: 4, premium: 2000 }],
           },
@@ -207,7 +205,7 @@ describe('dealSlice', () => {
       });
 
       it('should return 0 if items data is not present', () => {
-        state.entities.deal.deals = [];
+        state.deal.deals = [];
 
         const result = getProgressReport(state);
 

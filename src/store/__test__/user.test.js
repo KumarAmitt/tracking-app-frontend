@@ -14,7 +14,7 @@ describe('Existing user Login', () => {
     store = configureAppStore();
   });
 
-  const userSlice = () => store.getState().entities.user;
+  const userSlice = () => store.getState().user;
 
   const registrationCredentials = {
     user: {
@@ -158,11 +158,9 @@ describe('Existing user Login', () => {
 
   describe('selectors', () => {
     const createState = () => ({
-      entities: {
-        user: {
-          info: {},
-          loading: false,
-        },
+      user: {
+        info: {},
+        loading: false,
       },
     });
 
@@ -174,7 +172,7 @@ describe('Existing user Login', () => {
 
     describe('getUserInfo', () => {
       it('returns the username with status code and logged_in key when user is created', () => {
-        state.entities.user.info = { status: 200, logged_in: true, username: 'user1' };
+        state.user.info = { status: 200, logged_in: true, username: 'user1' };
 
         const result = getUserInfo(state);
         expect(result.status).toBe(200);
@@ -185,7 +183,7 @@ describe('Existing user Login', () => {
 
     describe('getUserLoadingStatus', () => {
       it('return TRUE if loading state is true', () => {
-        state.entities.user.loading = true;
+        state.user.loading = true;
         const result = getUserLoadingStatus(state);
         expect(result).toBeTruthy();
       });

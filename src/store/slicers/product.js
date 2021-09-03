@@ -40,6 +40,6 @@ export const loadProducts = () => apiCallBegan({
 // SELECTOR
 
 export const getProducts = createSelector(
-  (state) => state.entities.product.products,
+  (state) => state.product.products,
   (products) => products,
 );

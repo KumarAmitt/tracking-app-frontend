@@ -57,16 +57,16 @@ export const loadDeals = () => apiCallBegan({
 // SELECTOR
 
 export const getAllDeals = createSelector(
-  (state) => state.entities.deal.deals,
+  (state) => state.deal.deals,
   (deals) => (deals.all ? deals.all : 0),
 );
 
 export const getTotalPremium = createSelector(
-  (state) => state.entities.deal.deals.progress,
+  (state) => state.deal.deals.progress,
   (progress) => (progress ? progress.sum_premium : 0),
 );
 
 export const getProgressReport = createSelector(
-  (state) => state.entities.deal.deals.progress,
+  (state) => state.deal.deals.progress,
   (progress) => (progress ? progress.items : 0),
 );

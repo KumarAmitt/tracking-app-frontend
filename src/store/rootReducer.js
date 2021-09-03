@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import entityReducer from './entity';
+import userReducer from './slicers/user';
+import productReducer from './slicers/product';
+import dealReducer from './slicers/deal';
 
 export default combineReducers({
-  entities: entityReducer,
+  user: userReducer,
+  product: productReducer,
+  deal: dealReducer,
 });
