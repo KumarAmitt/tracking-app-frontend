@@ -160,7 +160,6 @@ Array [
         value=""
       />
       <button
-        data-testid="submit"
         type="submit"
       >
         Submit
