@@ -15,6 +15,12 @@ const userSlice = createSlice({
     },
     userInfoReceived: (state, action) => {
       state.info = action.payload
+      if(action.payload.logged_in === true){
+        state.active = true;
+      }else{
+        state.active = false;
+      }
+
       state.loading = false;
     },
     userRequestFailed: (state, action) => {

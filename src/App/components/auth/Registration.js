@@ -48,7 +48,7 @@ const Registration = () => {
   };
 
   if (userInfo.logged_in) {
-    return <Redirect to="profile" />;
+    return <Redirect to="/profile" />;
   }
 
   return (

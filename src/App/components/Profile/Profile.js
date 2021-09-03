@@ -14,11 +14,11 @@ const Profile = () => {
     dispatch(loadSession());
   }, []);
 
-  const handleLogout = () => {
-    dispatch(logoutUser());
+  const handleLogout = async () => {
+    await dispatch(logoutUser());
   };
 
-  if (!userInfo.logged_in) {
+  if (userInfo.logged_in === false) {
     return <Redirect to="/" />;
   }
 

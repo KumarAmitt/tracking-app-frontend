@@ -19,7 +19,7 @@ const Track = () => {
     dispatch(loadDeals());
   }, []);
 
-  if (!userInfo.logged_in) {
+  if (userInfo.logged_in === false) {
     return <Redirect to="/" />;
   }
 

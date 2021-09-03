@@ -22,7 +22,7 @@ const TrackDetails = ({ location }) => {
   }, []);
 
   if (!userInfo.logged_in) {
-    return <Redirect to="/" />;
+    return <Redirect to="/track" />;
   }
 
   return (
