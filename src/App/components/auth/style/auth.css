@@ -1,12 +1,13 @@
 .auth {
   padding: 2em;
   margin-top: 3em;
-  height: calc(100vh - 7em);
+  height: calc(100vh - 3em);
 }
 
 form {
   display: flex;
   flex-direction: column;
+  margin-top: 3em;
 }
 
 form > * {
@@ -24,19 +25,18 @@ form > button {
   background-color: var(--action-color);
   font-weight: bold;
   color: #eee;
+  padding: 1em;
   text-transform: uppercase;
+  border: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -1em;
+  width: 100%;
 }
 
 form > button:hover {
   background-color: #1f6d1d;
-}
-
-.auth-error {
-  color: red;
-}
-
-.hide {
-  display: none;
 }
 
 .auth-sub {
@@ -46,6 +46,7 @@ form > button:hover {
 
 .auth-sub a {
   text-decoration: none;
+  font-weight: bold;
   color: var(--accent-primary);
 }
 

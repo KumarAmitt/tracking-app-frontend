@@ -47,6 +47,10 @@ const Login = () => {
     <>
       <AppBar title="Sign In" link="/registration" />
       <div className="auth">
+        <div className="auth-sub">
+          <p>Are you a new user?</p>
+          <Link to="/registration">Sign Up</Link>
+        </div>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Username" value={username} onChange={changeUsername} required />
           <input type="password" placeholder="Password" value={password} onChange={changePassword} required />
@@ -54,12 +58,7 @@ const Login = () => {
         </form>
         {
           userLoading && <LinearProgress className="progress-bar" />
-         }
-        <div className="auth-error hide">Credentials Not Available</div>
-        <div className="auth-sub">
-          <p>New User Registration form</p>
-          <Link to="/registration">Sign Up</Link>
-        </div>
+        }
       </div>
     </>
   );

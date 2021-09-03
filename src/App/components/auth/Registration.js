@@ -55,6 +55,10 @@ const Registration = () => {
     <>
       <AppBar title="Sign up" link="/" />
       <div className="auth">
+        <div className="auth-sub">
+          <p>Already have an account?</p>
+          <Link to="/">Sign In</Link>
+        </div>
         <form onSubmit={handleSubmit} id="form">
           <input type="text" placeholder="Username (4-8 character)" value={username} onChange={changeUsername} required />
           <input type="password" placeholder="Password" value={password} onChange={changePassword} required />
@@ -64,11 +68,6 @@ const Registration = () => {
         {
           userLoading && <LinearProgress className="progress-bar" />
          }
-        <div className="auth-error hide">Registration Failed</div>
-        <div className="auth-sub">
-          <p>Existing users Login</p>
-          <Link to="/">Sign In</Link>
-        </div>
       </div>
     </>
   );
