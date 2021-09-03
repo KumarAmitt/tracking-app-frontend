@@ -6,15 +6,26 @@ import AppBar from '../AppBar/AppBar';
 import { getProducts, loadProducts } from '../../../store/slicers/product';
 import { createDeal } from '../../../store/slicers/deal';
 import './style/AddDeal.css';
+import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const AddDeal = () => {
   const appBarTitle = 'Add Deal';
   const dispatch = useDispatch();
   const products = useSelector(getProducts);
+  const userInfo = useSelector(getUserInfo);
 
   const [productId, setProductId] = useState(0);
   const [applicationId, setApplicationId] = useState('');
   const [premium, setPremium] = useState('');
+
+  useEffect(() => {
+    dispatch(loadProducts());
+    dispatch(loadSession());
+  }, []);
+
+  if (!userInfo.logged_in) {
+    return <Redirect to="/" />;
+  }
 
   const changeApplicationId = (e) => {
     setApplicationId(e.target.value);
@@ -34,10 +45,6 @@ const AddDeal = () => {
     setPremium('');
   };
 
-  useEffect(() => {
-    dispatch(loadProducts());
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (productId === 0) {
@@ -53,10 +60,6 @@ const AddDeal = () => {
       resetForm();
     }
   };
-
-  // if (!sessionInfo.logged_in) {
-  //   return <Redirect to="/" />;
-  // }
 
   return (
     <>
