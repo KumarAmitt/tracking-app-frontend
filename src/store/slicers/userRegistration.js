@@ -14,14 +14,10 @@ const registrationSlice = createSlice({
       state.loading = true;
     },
     userRegistered: (state, action) => {
-      state.registration.id = action.payload.user.id;
-      state.registration.username = action.payload.user.username;
-      state.registration.password = action.payload.user['password_digest'];
-      state.registration.status = action.payload.status;
+      state.registration = action.payload
       state.loading = false;
     },
     registrationFailed: (state, action) => {
-      state.registration.error = action.payload;
       state.loading = false;
     },
   },
@@ -44,6 +40,11 @@ export const registerUser = (user) => apiCallBegan({
 });
 
 // SELECTOR
+
+export const getRegistrationInfo = createSelector(
+  (state) => state.entities.auth.registration.registration,
+  (registration) => registration,
+);
 
 export const getRegistrationStatus = createSelector(
   (state) => state.entities.auth.registration.registration.status,

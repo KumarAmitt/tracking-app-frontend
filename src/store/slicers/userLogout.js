@@ -30,7 +30,7 @@ export default logoutSlice.reducer;
 // ACTION CREATOR
 
 export const logoutUser = () => apiCallBegan({
-  url: '/logout',
+  url: '/sessions',
   method: 'delete',
   withCredentials: true,
   onSuccess: userLogout.type,

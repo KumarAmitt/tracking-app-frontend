@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import { getSessionInfo, loadSession } from '../../../store/slicers/userSession';
 import { logoutUser } from '../../../store/slicers/userLogout';
@@ -20,15 +20,17 @@ const Profile = () => {
     dispatch(loadSession());
   };
 
-  if (!sessionInfo.logged_in) {
-    return <Redirect to="/" />;
-  }
+  console.log(sessionInfo);
+
+  // if (!sessionInfo.logged_in) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <>
       <AppBar title="Profile" />
       <div className="profile-top">
-        <h2>{sessionInfo.user.username}</h2>
+        <h2>{sessionInfo.username}</h2>
       </div>
       <button type="button" onClick={handleLogout} className="logout-button">
         <ExitToAppOutlinedIcon />

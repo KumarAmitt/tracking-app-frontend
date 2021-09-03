@@ -14,14 +14,16 @@ const loginSlice = createSlice({
       state.loading = true;
     },
     userLogin: (state, action) => {
-      if (action.payload.status === 401) {
-        state.loggedInUser.status = action.payload.status;
-      } else {
-        state.loggedInUser.id = action.payload.user.id;
-        state.loggedInUser.username = action.payload.user.username;
-        state.loggedInUser.status = action.payload.status;
-        state.loggedInUser.logged_in = action.payload.logged_in;
-      }
+      // if (action.payload.status === 401) {
+      //   state.loggedInUser.status = action.payload.status;
+      // } else {
+      //   state.loggedInUser.id = action.payload.user.id;
+      //   state.loggedInUser.username = action.payload.user.username;
+      //   state.loggedInUser.status = action.payload.status;
+      //   state.loggedInUser.logged_in = action.payload.logged_in;
+      // }
+
+      state.loggedInUser = action.payload
       state.loading = false;
     },
     loginFailed: (state, action) => {
@@ -47,6 +49,11 @@ export const loginUser = (user) => apiCallBegan({
 });
 
 // SELECTOR
+
+export const getLoginInfo = createSelector(
+  (state) => state.entities.auth.login.loggedInUser,
+  (loggedInUser) => loggedInUser,
+);
 
 export const getLoggedInStatus = createSelector(
   (state) => state.entities.auth.login.loggedInUser.status,

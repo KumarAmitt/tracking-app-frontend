@@ -20,6 +20,7 @@ const dealSlice = createSlice({
     },
     dealReceived: (state, action) => {
       state.deals = action.payload;
+      console.log(state.deals);
       state.loading = false;
     },
     dealRequestFailed: (state, action) => {

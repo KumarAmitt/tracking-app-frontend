@@ -30,7 +30,7 @@ export default sessionSlice.reducer;
 // ACTION CREATOR
 
 export const loadSession = () => apiCallBegan({
-  url: '/logged_in',
+  url: '/sessions',
   withCredentials: true,
   onStart: sessionRequested.type,
   onSuccess: userLoggedInStatus.type,
