@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import {
-  getLoginInfo, getLoginProgress, loginUser,
-} from '../../../store/slicers/userLogin';
 import AppBar from '../AppBar/AppBar';
 import './style/auth.css';
+import { getUserInfo, getUserLoadingStatus, loginUser } from '../../../store/slicers/user';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const loginProgress = useSelector(getLoginProgress);
 
-  const loginInfo = useSelector(getLoginInfo);
+  const userInfo = useSelector(getUserInfo);
+  const userLoading = useSelector(getUserLoadingStatus);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,27 +28,6 @@ const Login = () => {
     setPassword('');
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   await dispatch(loginUser({
-  //     user: {
-  //       username,
-  //       password,
-  //     },
-  //   }));
-  //   dispatch(loadSession());
-  //
-  //   if (!loggedInStatus) {
-  //     document.querySelector('.auth-error').classList.remove('hide');
-  //   }
-  //
-  //   setNewUser({ ...newUser, password: '' });
-  // };
-  //
-  // if (sessionInfo.logged_in) {
-  //   return <Redirect to="/profile" />;
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser({
@@ -61,7 +39,9 @@ const Login = () => {
     resetForm();
   };
 
-  console.log(loginInfo);
+  if (userInfo.logged_in) {
+    return <Redirect to="/profile" />;
+  }
 
   return (
     <>
@@ -73,8 +53,8 @@ const Login = () => {
           <button type="submit">Login</button>
         </form>
         {
-          loginProgress && <LinearProgress className="progress-bar" />
-        }
+          userLoading && <LinearProgress className="progress-bar" />
+         }
         <div className="auth-error hide">Credentials Not Available</div>
         <div className="auth-sub">
           <p>New User Registration form</p>

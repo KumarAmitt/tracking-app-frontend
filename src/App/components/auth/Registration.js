@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { getRegistrationInfo, getRegistrationProgress, registerUser } from '../../../store/slicers/userRegistration';
 import AppBar from '../AppBar/AppBar';
 import './style/auth.css';
+import { getUserInfo, getUserLoadingStatus, registerUser } from '../../../store/slicers/user';
 
 const Registration = () => {
   const dispatch = useDispatch();
-  const regInfo = useSelector(getRegistrationInfo);
-  const registrationProgress = useSelector(getRegistrationProgress);
+
+  const userInfo = useSelector(getUserInfo);
+  const userLoading = useSelector(getUserLoadingStatus);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -32,32 +34,10 @@ const Registration = () => {
     setConfirmPassword('');
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   await dispatch(registerUser({
-  //     user: {
-  //       username: newUser.username,
-  //       password: newUser.password,
-  //       password_confirmation: newUser.password_confirmation,
-  //     },
-  //   }));
-  //   // dispatch(loadSession());
-  //
-  //   if (!registrationStatus) {
-  //     document.querySelector('.auth-error').classList.remove('hide');
-  //   }
-  //
-  //   setNewUser({ ...newUser, password: '', password_confirmation: '' });
-  // };
-
-  // if (sessionInfo.logged_in) {e
-  //   return <Redirect to="profile" />;
-  // }
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    await dispatch(registerUser({
+    dispatch(registerUser({
       user: {
         username,
         password,
@@ -67,11 +47,8 @@ const Registration = () => {
     resetForm();
   };
 
-  console.log(regInfo.status);
-  if (regInfo.state === 500) {
-    console.log('Registration unsuccess');
-  } else {
-    console.log('Registered User: ', regInfo.username);
+  if (userInfo.logged_in) {
+    return <Redirect to="profile" />;
   }
 
   return (
@@ -85,8 +62,8 @@ const Registration = () => {
           <button type="submit">Register</button>
         </form>
         {
-          registrationProgress && <LinearProgress className="progress-bar" />
-        }
+          userLoading && <LinearProgress className="progress-bar" />
+         }
         <div className="auth-error hide">Registration Failed</div>
         <div className="auth-sub">
           <p>Existing users Login</p>
