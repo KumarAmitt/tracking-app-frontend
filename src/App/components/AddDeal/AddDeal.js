@@ -18,6 +18,9 @@ const AddDeal = () => {
   const [applicationId, setApplicationId] = useState('');
   const [premium, setPremium] = useState('');
 
+  const [selectPlaceholderText, setSelectPlaceholderText] = useState('Select a product');
+  const [selectPlaceholderClass, setSelectPlaceholderClass] = useState('');
+
   useEffect(() => {
     dispatch(loadSession());
     dispatch(loadProducts());
@@ -36,9 +39,8 @@ const AddDeal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (productId === 0) {
-      const el = document.getElementById('select-placeholder');
-      el.innerHTML = 'Product must be selected';
-      el.style.color = 'red';
+      setSelectPlaceholderText('Please select a Product');
+      setSelectPlaceholderClass('red-text');
     } else {
       dispatch(createDeal({
         product_id: productId,
@@ -59,7 +61,7 @@ const AddDeal = () => {
             classNamePrefix="react-select"
             options={products.map((p) => ({ label: p.product_name, value: p.id }))}
             onChange={(e) => setProductId(e.value)}
-            placeholder={<div id="select-placeholder">Select a product</div>}
+            placeholder={<div className={selectPlaceholderClass}>{selectPlaceholderText}</div>}
           />
           <input type="text" placeholder="Application ID" value={applicationId} onChange={(e) => setApplicationId(e.target.value)} />
           <input type="number" step="0.01" placeholder="Premium" value={premium} onChange={(e) => setPremium(e.target.value)} required />
