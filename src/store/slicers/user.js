@@ -14,10 +14,11 @@ const userSlice = createSlice({
       state.loading = true;
     },
     userInfoReceived: (state, action) => {
-      state.info = action.payload
+      state.info = action.payload;
       state.loading = false;
     },
     userRequestFailed: (state, action) => {
+      state.info = action.payload;
       state.loading = false;
     },
   },

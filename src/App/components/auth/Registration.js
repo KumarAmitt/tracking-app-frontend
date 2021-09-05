@@ -47,6 +47,7 @@ const Registration = () => {
           <p>Already have an account?</p>
           <Link to="/">Sign In</Link>
         </div>
+        <div className={`error-message ${userInfo.status === 'Error' ? 'show' : ''}`}>Sign Up Failed: Username not available or password mismatch</div>
         <form onSubmit={handleSubmit} id="form">
           <input type="text" placeholder="Username (4-8 character)" value={username} onChange={(e) => setUsername(e.target.value)} required />
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />

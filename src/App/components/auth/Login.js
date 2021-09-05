@@ -43,6 +43,7 @@ const Login = () => {
           <p>Are you a new user?</p>
           <Link to="/registration">Sign Up</Link>
         </div>
+        <div className={`error-message ${userInfo.status === 'Error' ? 'show' : ''}`}>Sign In Failed: Invalid username or password</div>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
