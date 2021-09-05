@@ -15,14 +15,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const changeUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const changePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
   const resetForm = () => {
     setUsername('');
     setPassword('');
@@ -52,8 +44,8 @@ const Login = () => {
           <Link to="/registration">Sign Up</Link>
         </div>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Username" value={username} onChange={changeUsername} required />
-          <input type="password" placeholder="Password" value={password} onChange={changePassword} required />
+          <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <button type="submit">Login</button>
         </form>
         {

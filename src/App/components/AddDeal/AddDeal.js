@@ -27,18 +27,6 @@ const AddDeal = () => {
     return <Redirect to="/" />;
   }
 
-  const changeApplicationId = (e) => {
-    setApplicationId(e.target.value);
-  };
-
-  const changePremium = (e) => {
-    setPremium(e.target.value);
-  };
-
-  const changeProductId = (e) => {
-    setProductId(e);
-  };
-
   const resetForm = () => {
     setProductId(0);
     setApplicationId('');
@@ -70,11 +58,11 @@ const AddDeal = () => {
             className="react-select"
             classNamePrefix="react-select"
             options={products.map((p) => ({ label: p.product_name, value: p.id }))}
-            onChange={(e) => changeProductId(e.value)}
+            onChange={(e) => setProductId(e.value)}
             placeholder={<div id="select-placeholder">Select a product</div>}
           />
-          <input type="text" placeholder="Application ID" value={applicationId} onChange={changeApplicationId} />
-          <input type="number" step="0.01" placeholder="Premium" value={premium} onChange={changePremium} required />
+          <input type="text" placeholder="Application ID" value={applicationId} onChange={(e) => setApplicationId(e.target.value)} />
+          <input type="number" step="0.01" placeholder="Premium" value={premium} onChange={(e) => setPremium(e.target.value)} required />
           <button type="submit">Submit</button>
         </form>
       </div>

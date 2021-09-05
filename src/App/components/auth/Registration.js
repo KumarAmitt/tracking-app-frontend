@@ -16,18 +16,6 @@ const Registration = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const changeUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const changePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const changeConfirmPassword = (e) => {
-    setConfirmPassword(e.target.value);
-  };
-
   const resetForm = () => {
     setUsername('');
     setPassword('');
@@ -60,9 +48,9 @@ const Registration = () => {
           <Link to="/">Sign In</Link>
         </div>
         <form onSubmit={handleSubmit} id="form">
-          <input type="text" placeholder="Username (4-8 character)" value={username} onChange={changeUsername} required />
-          <input type="password" placeholder="Password" value={password} onChange={changePassword} required />
-          <input type="password" placeholder="Password Confirmation" value={confirmPassword} onChange={changeConfirmPassword} required />
+          <input type="text" placeholder="Username (4-8 character)" value={username} onChange={(e) => setUsername(e.target.value)} required />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input type="password" placeholder="Password Confirmation" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           <button type="submit">Register</button>
         </form>
         {
