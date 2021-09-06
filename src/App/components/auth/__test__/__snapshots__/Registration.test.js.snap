@@ -42,6 +42,11 @@ Array [
         Sign In
       </a>
     </div>
+    <div
+      className="error-message hide"
+    >
+      Sign Up Failed: Username unavailable or password mismatch
+    </div>
     <form
       id="form"
       onSubmit={[Function]}
