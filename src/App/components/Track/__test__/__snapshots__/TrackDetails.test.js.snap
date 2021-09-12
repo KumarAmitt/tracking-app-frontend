@@ -1,3 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TrackDetails should match the snapshot of TrackDetails component 1`] = `null`;
+exports[`TrackDetails should match the snapshot of TrackDetails component 1`] = `
+Array [
+  <div
+    className="appbar"
+  >
+    <a
+      href="/track"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"
+        />
+      </svg>
+    </a>
+    <div
+      className="title"
+    >
+      Track Details
+    </div>
+  </div>,
+  <div
+    className="details"
+  >
+    <div
+      className="details-header"
+    >
+      <div
+        className="date"
+      >
+        2021-08-29
+      </div>
+      <div
+        className="stats"
+      >
+        <div
+          className="stats-item"
+        >
+          <div>
+            2000
+          </div>
+          <div>
+            Day
+          </div>
+        </div>
+        <div
+          className="stats-item"
+        >
+          <div>
+            0
+          </div>
+          <div>
+            Achieved
+          </div>
+        </div>
+        <div
+          className="stats-item"
+        >
+          <div>
+            700000
+          </div>
+          <div>
+            Lag
+          </div>
+        </div>
+        <div
+          className="stats-item"
+        >
+          <div>
+            700000
+          </div>
+          <div>
+            Target
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="details-items"
+    >
+      <div
+        className="details-item"
+      >
+        <div
+          className="ins-type"
+        >
+          
+        </div>
+        <div
+          className="premium"
+        >
+          <span>
+            ₹
+          </span>
+           
+          2000
+        </div>
+        <div
+          className="appl-id"
+        />
+      </div>
+    </div>
+  </div>,
+]
+`;

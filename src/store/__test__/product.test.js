@@ -34,7 +34,7 @@ describe('productSlice', () => {
 
         await store.dispatch(loadProducts());
 
-        expect(productSlice().products).toHaveLength(2);
+        expect(productSlice().products.products).toHaveLength(2);
       });
 
       it('should NOT return any product if network found', async () => {
@@ -42,7 +42,7 @@ describe('productSlice', () => {
 
         await store.dispatch(loadProducts());
 
-        expect(productSlice().products).toHaveLength(0);
+        expect(productSlice().products).toMatchObject({});
       });
     });
 

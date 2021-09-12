@@ -6,7 +6,7 @@ import { apiCallBegan } from '../api';
 const productSlice = createSlice({
   name: 'product',
   initialState: {
-    products: [],
+    products: {},
     loading: false,
   },
   reducers: {
@@ -14,7 +14,7 @@ const productSlice = createSlice({
       state.loading = true;
     },
     productsReceived: (state, action) => {
-      state.products = action.payload.products
+      state.products = action.payload;
       state.loading = false;
     },
     productRequestFailed: (state, action) => {

@@ -4,23 +4,23 @@ import { Redirect } from 'react-router-dom';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import AppBar from '../AppBar/AppBar';
 import './style/Profile.css';
-import { getUserInfo, loadSession, logoutUser } from '../../../store/slicers/user';
+import { getUserInfo, loginUser, logoutUser } from '../../../store/slicers/user';
 
 const Profile = () => {
   const dispatch = useDispatch();
   const userInfo = useSelector(getUserInfo);
 
   useEffect(() => {
-    dispatch(loadSession());
+    dispatch(loginUser());
   }, []);
+
+  if (!userInfo.logged_in) {
+    return <Redirect to="/" />;
+  }
 
   const handleLogout = async () => {
     await dispatch(logoutUser());
   };
-
-  if (userInfo.logged_in === false) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <>

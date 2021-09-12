@@ -50,14 +50,6 @@ export const loginUser = (user) => apiCallBegan({
   onError: userRequestFailed.type,
 });
 
-export const loadSession = () => apiCallBegan({
-  url: '/sessions',
-  withCredentials: true,
-  onStart: userRequested.type,
-  onSuccess: userInfoReceived.type,
-  onError: userRequestFailed.type,
-});
-
 export const logoutUser = () => apiCallBegan({
   url: '/sessions',
   method: 'delete',

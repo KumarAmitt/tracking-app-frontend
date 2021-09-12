@@ -3,23 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import AppBar from '../AppBar/AppBar';
-import { getAllDeals, loadDeals } from '../../../store/slicers/deal';
+import { getAllDeals, getDealsStatus, loadDeals } from '../../../store/slicers/deal';
 import './style/Track.css';
-import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const Track = () => {
   const title = 'Track Your Deal';
   const dispatch = useDispatch();
-
-  const userInfo = useSelector(getUserInfo);
-  const deals = useSelector(getAllDeals);
+  const allDeals = useSelector(getAllDeals);
+  const deals = useSelector(getDealsStatus);
 
   useEffect(() => {
-    dispatch(loadSession());
     dispatch(loadDeals());
   }, []);
 
-  if (userInfo.logged_in === false) {
+  if (deals.status === 401) {
     return <Redirect to="/" />;
   }
 
@@ -27,8 +24,8 @@ const Track = () => {
     <div className="track">
       <AppBar title={title} />
       {
-        Object.entries(deals).length === 0 ? <div className="not-found">No data found. Please Add deal first</div>
-          : Object.entries(deals).map((d) => (
+        Object.entries(allDeals).length === 0 ? <div className="not-found">No data found. Please Add deal first</div>
+          : Object.entries(allDeals).map((d) => (
             <div key={d[0]} className="track-tile">
               <Link to={{ pathname: '/track_details', info: d[1], date: d[0] }}>
                 <div className="track-tile-left">

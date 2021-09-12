@@ -43,14 +43,14 @@ form > button {
   text-transform: uppercase;
 }
 
-.auth form > button {
-  padding: 1em;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: -1em;
-  width: 100%;
-}
+/*.auth form > button {*/
+/*  padding: 1em;*/
+/*  position: fixed;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*  bottom: -1em;*/
+/*  width: 100%;*/
+/*}*/
 
 form > button:hover {
   background-color: #1f6d1d;

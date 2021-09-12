@@ -7,7 +7,7 @@ const dealSlice = createSlice({
   name: 'deal',
   initialState: {
     newDeal: [],
-    deals: [],
+    deals: {},
     loading: false,
   },
   reducers: {
@@ -69,4 +69,9 @@ export const getTotalPremium = createSelector(
 export const getProgressReport = createSelector(
   (state) => state.deal.deals.progress,
   (progress) => (progress ? progress.items : 0),
+);
+
+export const getDealsStatus = createSelector(
+  (state) => state.deal.deals,
+  (deals) => deals,
 );

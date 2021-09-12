@@ -6,25 +6,22 @@ import AppBar from '../AppBar/AppBar';
 import { getProducts, loadProducts } from '../../../store/slicers/product';
 import './style/TrackDetails.css';
 import Stats from './Stats';
-import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const TrackDetails = ({ location }) => {
   const { info, date } = location;
   const title = 'Track Details';
   const dispatch = useDispatch();
-  const userInfo = useSelector(getUserInfo);
-  const products = useSelector(getProducts);
+  const productsObj = useSelector(getProducts);
+  const products = productsObj.products === undefined ? [] : productsObj.products;
   const todayTotal = info ? info.map((e) => e.premium).reduce((a, b) => a + b) : 0;
 
   useEffect(() => {
-    dispatch(loadSession());
     dispatch(loadProducts());
   }, []);
 
-  if (!userInfo.logged_in) {
-    return <Redirect to="/track" />;
+  if (productsObj.status === 401) {
+    return <Redirect to="/" />;
   }
-
   return (
     <>
       <AppBar title={title} link="/track" />
@@ -37,7 +34,7 @@ const TrackDetails = ({ location }) => {
           {
             info && info.map((e) => (
               <div key={e.id} className="details-item">
-                <div className="ins-type">{products.length > 0 ? products.filter((f) => f.id === e.product_id)[0].product_name : ''}</div>
+                <div className="ins-type">{products.length > 0 ? productsObj.products.filter((f) => f.id === e.product_id)[0].product_name : ''}</div>
                 <div className="premium">
                   <span>&#8377;</span>
                   {' '}

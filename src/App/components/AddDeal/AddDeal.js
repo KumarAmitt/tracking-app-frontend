@@ -6,13 +6,12 @@ import AppBar from '../AppBar/AppBar';
 import { getProducts, loadProducts } from '../../../store/slicers/product';
 import { createDeal } from '../../../store/slicers/deal';
 import './style/AddDeal.css';
-import { getUserInfo, loadSession } from '../../../store/slicers/user';
 
 const AddDeal = () => {
   const appBarTitle = 'Add Deal';
   const dispatch = useDispatch();
-  const products = useSelector(getProducts);
-  const userInfo = useSelector(getUserInfo);
+  const productsObj = useSelector(getProducts);
+  const productsArray = productsObj.products === undefined ? [] : productsObj.products;
 
   const [productId, setProductId] = useState(0);
   const [applicationId, setApplicationId] = useState('');
@@ -22,11 +21,10 @@ const AddDeal = () => {
   const [selectPlaceholderClass, setSelectPlaceholderClass] = useState('');
 
   useEffect(() => {
-    dispatch(loadSession());
     dispatch(loadProducts());
   }, []);
 
-  if (userInfo.logged_in === false) {
+  if (productsObj.status === 401) {
     return <Redirect to="/" />;
   }
 
@@ -59,7 +57,7 @@ const AddDeal = () => {
           <Select
             className="react-select"
             classNamePrefix="react-select"
-            options={products.map((p) => ({ label: p.product_name, value: p.id }))}
+            options={productsArray.map((p) => ({ label: p.product_name, value: p.id }))}
             onChange={(e) => setProductId(e.value)}
             placeholder={<div className={selectPlaceholderClass}>{selectPlaceholderText}</div>}
           />

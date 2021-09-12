@@ -2,7 +2,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import configureAppStore from '../configureStore';
 import {
-  registerUser, loginUser, loadSession, logoutUser, getUserInfo, getUserLoadingStatus,
+  registerUser, loginUser, logoutUser, getUserInfo, getUserLoadingStatus,
 } from '../slicers/user';
 
 describe('Existing user Login', () => {
@@ -82,34 +82,6 @@ describe('Existing user Login', () => {
       });
     });
 
-    describe('Current user session', () => {
-      describe('loadSession', () => {
-        it('should return logged_in as TRUE if session is created', async () => {
-          fakeAxios.onGet('/sessions').reply(200, { logged_in: true });
-
-          await store.dispatch(loadSession());
-
-          expect(userSlice().info.logged_in).toBeTruthy();
-        });
-
-        it('should return logged_in as FALSE if session is destroyed', async () => {
-          fakeAxios.onGet('/sessions').reply(200, { logged_in: false });
-
-          await store.dispatch(loadSession());
-
-          expect(userSlice().info.logged_in).toBeFalsy();
-        });
-
-        it('should return empty object is network error found', async () => {
-          fakeAxios.onGet('/sessions').reply(500);
-
-          await store.dispatch(loadSession());
-
-          expect(userSlice().info).toMatchObject({});
-        });
-      });
-    });
-
     describe('Logout action', () => {
       it('should logout the current user with status code 200', async () => {
         fakeAxios.onDelete('/sessions').reply(200, { status: 200, logged_in: false });
@@ -137,22 +109,6 @@ describe('Existing user Login', () => {
         return [200, registrationResponse];
       });
       store.dispatch(registerUser(registrationCredentials));
-    });
-
-    it('should be false after loading session', async () => {
-      fakeAxios.onGet('/sessions').reply(200, { logged_in: true });
-
-      await store.dispatch(loadSession());
-
-      expect(userSlice().loading).toBe(false);
-    });
-
-    it('should be false if session loading failed', async () => {
-      fakeAxios.onGet('/logged_in').reply(500);
-
-      await store.dispatch(loadSession());
-
-      expect(userSlice().loading).toBe(false);
     });
   });
 

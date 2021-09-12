@@ -106,7 +106,7 @@ describe('dealSlice', () => {
 
           await store.dispatch(loadDeals());
 
-          expect(dealSlice().deals).toMatchObject([]);
+          expect(dealSlice().deals).toMatchObject({});
         });
       });
 
@@ -142,7 +142,7 @@ describe('dealSlice', () => {
     const createState = () => ({
       deal: {
         newDeal: [],
-        deals: [],
+        deals: {},
         loading: false,
       },
     });
