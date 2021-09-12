@@ -17,8 +17,8 @@ const Progress = () => {
   const progressPercent = (totalPremium / TARGET) * 100;
   const deals = useSelector(getDealsStatus);
 
-  useEffect(() => {
-    dispatch(loadDeals());
+  useEffect(async () => {
+    await dispatch(loadDeals());
   }, []);
 
   if (deals.status === 401) {

@@ -14,7 +14,7 @@ const Profile = () => {
     dispatch(loginUser());
   }, []);
 
-  if (!userInfo.logged_in) {
+  if (userInfo.logged_in === false) {
     return <Redirect to="/" />;
   }
 

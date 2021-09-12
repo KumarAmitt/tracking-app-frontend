@@ -12,8 +12,8 @@ const Track = () => {
   const allDeals = useSelector(getAllDeals);
   const deals = useSelector(getDealsStatus);
 
-  useEffect(() => {
-    dispatch(loadDeals());
+  useEffect(async () => {
+    await dispatch(loadDeals());
   }, []);
 
   if (deals.status === 401) {

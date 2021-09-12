@@ -20,8 +20,8 @@ const AddDeal = () => {
   const [selectPlaceholderText, setSelectPlaceholderText] = useState('Select a product');
   const [selectPlaceholderClass, setSelectPlaceholderClass] = useState('');
 
-  useEffect(() => {
-    dispatch(loadProducts());
+  useEffect(async () => {
+    await dispatch(loadProducts());
   }, []);
 
   if (productsObj.status === 401) {
