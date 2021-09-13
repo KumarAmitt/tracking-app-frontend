@@ -1,0 +1,33 @@
+.navbar {
+  background-color: var(--accent-secondary);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > * {
+  width: 100%;
+  height: 100%;
+  padding: 0.6em;
+  transition: all linear 300ms;
+}
+
+.navbar > *:hover {
+  background-color: var(--accent-primary);
+}
+
+.navbar a {
+  color: #eee;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar a div {
+  font-size: 0.8rem;
+  padding: 0.2em;
+}

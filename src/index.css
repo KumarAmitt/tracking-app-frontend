@@ -1,4 +1,8 @@
 :root {
+  --accent-primary: #42b5e8;
+  --accent-secondary: #464a4a;
+  --action-color: #45a144;
+
   box-sizing: border-box;
 }
 

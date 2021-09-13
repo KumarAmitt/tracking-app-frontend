@@ -1,0 +1,23 @@
+.appbar {
+  background-color: var(--accent-primary);
+  display: flex;
+  padding: 1.2em 1em 0.6em;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.appbar .title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+.appbar a {
+  color: #eee;
+  position: absolute;
+  left: 0.8em;
+}

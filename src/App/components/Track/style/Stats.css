@@ -1,0 +1,20 @@
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+.stats-item {
+  text-align: center;
+}
+
+.stats-item > * + * {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin-top: 0.4em;
+  letter-spacing: 2px;
+}
+
+.stats-item > *:first-child {
+  font-weight: bold;
+}

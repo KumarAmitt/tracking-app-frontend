@@ -1,0 +1,17 @@
+.add-deal {
+  margin-top: 3em;
+  height: calc(100vh - 7em);
+}
+
+.react-select .react-select__control {
+  border: none;
+}
+
+.add-deal form > * + * {
+  margin: 1em auto;
+  width: 90%;
+}
+
+.red-text {
+  color: red;
+}

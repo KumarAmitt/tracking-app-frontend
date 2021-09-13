@@ -1,0 +1,73 @@
+.auth {
+  padding: 2em;
+  margin-top: 3em;
+  height: calc(100vh - 3em);
+}
+
+.error-message {
+  font-size: 0.8rem;
+  margin-top: 3em;
+  border-radius: 2em;
+  text-align: center;
+}
+
+.show {
+  color: red;
+}
+
+.hide {
+  color: transparent;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+}
+
+form > * {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+}
+
+form > *:focus {
+  outline: none;
+}
+
+form > button {
+  background-color: var(--action-color);
+  font-weight: bold;
+  color: #eee;
+  text-transform: uppercase;
+}
+
+.auth form > button {
+  padding: 1.2em;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -1em;
+  width: 100%;
+  z-index: 10;
+}
+
+form > button:hover {
+  background-color: #1f6d1d;
+}
+
+.auth-sub {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.auth-sub a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--accent-primary);
+}
+
+.auth .progress-bar > * {
+  background-color: var(--accent-primary);
+}

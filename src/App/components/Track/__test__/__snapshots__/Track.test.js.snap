@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Track should match the snapshot of Track component 1`] = `
+<div
+  className="track"
+>
+  <div
+    className="appbar"
+  >
+    <a
+      href="/add_deal"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"
+        />
+      </svg>
+    </a>
+    <div
+      className="title"
+    >
+      Track Your Deal
+    </div>
+  </div>
+  <div
+    className="not-found"
+  >
+    No data found. Please Add deal first
+  </div>
+</div>
+`;

@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress should match the snapshot of Progress component 1`] = `
+Array [
+  <div
+    className="appbar"
+  >
+    <a
+      href="/add_deal"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"
+        />
+      </svg>
+    </a>
+    <div
+      className="title"
+    >
+      Progress Report
+    </div>
+  </div>,
+  <div
+    className="progress-stats"
+  >
+    <div>
+      <div
+        className="MuiBox-root MuiBox-root-1"
+      >
+        <div
+          aria-valuenow={0}
+          className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"
+          role="progressbar"
+          style={
+            Object {
+              "height": 40,
+              "transform": "rotate(-90deg)",
+              "width": 40,
+            }
+          }
+        >
+          <svg
+            className="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              className="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+              cx={44}
+              cy={44}
+              fill="none"
+              r={20.2}
+              strokeWidth={3.6}
+              style={
+                Object {
+                  "strokeDasharray": "126.920",
+                  "strokeDashoffset": "126.920px",
+                }
+              }
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiBox-root MuiBox-root-2"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
+          >
+            0%
+          </div>
+        </div>
+      </div>
+      <div
+        className="progress-stats-label"
+      >
+        Achieved
+      </div>
+    </div>
+    <div>
+      <div
+        className="MuiBox-root MuiBox-root-3"
+      >
+        <div
+          aria-valuenow={100}
+          className="MuiCircularProgress-root MuiCircularProgress-colorSecondary MuiCircularProgress-determinate"
+          role="progressbar"
+          style={
+            Object {
+              "height": 40,
+              "transform": "rotate(-90deg)",
+              "width": 40,
+            }
+          }
+        >
+          <svg
+            className="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              className="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+              cx={44}
+              cy={44}
+              fill="none"
+              r={20.2}
+              strokeWidth={3.6}
+              style={
+                Object {
+                  "strokeDasharray": "126.920",
+                  "strokeDashoffset": "0.000px",
+                }
+              }
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiBox-root MuiBox-root-4"
+        >
+          <div
+            className="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
+          >
+            100%
+          </div>
+        </div>
+      </div>
+      <div
+        className="progress-stats-label"
+      >
+        Lag
+      </div>
+    </div>
+  </div>,
+  <div
+    className="progress-items"
+  />,
+]
+`;

@@ -1,0 +1,59 @@
+.track {
+  background-color: #eee;
+  margin-top: 3em;
+  height: calc(100vh - 7em);
+  padding: 0.2em 0;
+}
+
+.not-found {
+  font-size: 1.1rem;
+  margin-top: 1em;
+  text-align: center;
+  color: var(--accent-primary);
+  font-weight: bold;
+  background-color: #fff;
+  padding: 0.5em;
+}
+
+.track-tile {
+  margin: 0.8em 0;
+  padding: 0.4em 0.8em;
+  background-color: #fff;
+}
+
+.track-tile a {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--accent-secondary);
+  transition: all linear 300ms;
+}
+
+.track-tile a:hover {
+  transform: scaleX(1.01);
+}
+
+.track-tile-left .date {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.track-tile-left .count {
+  color: lightslategray;
+}
+
+.track-tile-right {
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: flex;
+}
+
+.track-tile-right > * {
+  margin-left: 0.4em;
+}
+
+.track-tile-right span {
+  margin-left: 0.4em;
+  margin-top: 0.1em;
+}
